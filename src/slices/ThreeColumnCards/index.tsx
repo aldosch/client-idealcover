@@ -1,6 +1,6 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import Card from "@components/Card";
+import { Card } from "@ui";
 
 /**
  * Props for `ThreeCards`.
