@@ -1,5 +1,6 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import Card from "@components/Card";
 
 /**
  * Props for `ThreeCards`.
@@ -14,9 +15,9 @@ const ThreeCards = ({ slice }: ThreeCardsProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="bg-blue-300 rounded-lg p-4 m-4"
     >
-      Placeholder component for three_cards (variation: {slice.variation})
-      Slices
+      <Card>Content</Card>
     </section>
   );
 };
