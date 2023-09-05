@@ -1,0 +1,68 @@
+{
+  "id": "menu",
+  "label": "Menu",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "menu_items": {
+        "type": "Group",
+        "config": {
+          "label": "Menu Items",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "select": "document",
+                "customtypes": [
+                  "product",
+                  "pds",
+                  "home",
+                  "privacy_policy",
+                  "about"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "phone_number": {
+        "type": "Number",
+        "config": {
+          "label": "Phone Number",
+          "placeholder": "0278016639"
+        }
+      },
+      "phone_number_label": {
+        "type": "Text",
+        "config": {
+          "label": "Phone Number Formatted",
+          "placeholder": "(02) 7801 6639"
+        }
+      },
+      "phone_number_call_to_action": {
+        "type": "Text",
+        "config": {
+          "label": "Phone Number Call To Action",
+          "placeholder": "Call us:"
+        }
+      },
+      "call_to_action": {
+        "type": "Text",
+        "config": {
+          "label": "Call To Action",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Fastened"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"card",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Exercitation reprehenderit ad sint esse sunt veniam occaecat qui amet ad cillum minim ad ea. Duis magna in nulla ex occaecat ad occaecat nulla esse duis irure sunt. Sunt id reprehenderit tempor aliquip enim nisi sit incididunt velit non qui quis anim mollit cupidatat."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]

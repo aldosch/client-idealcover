@@ -1,0 +1,51 @@
+{
+  "id": "testimonials",
+  "label": "Testimonials",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "testimonials": {
+        "type": "Group",
+        "config": {
+          "label": "Testimonials",
+          "fields": {
+            "review": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Review",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,em"
+              }
+            },
+            "name": {
+              "type": "Text",
+              "config": {
+                "label": "Name",
+                "placeholder": ""
+              }
+            },
+            "description": {
+              "type": "Text",
+              "config": {
+                "label": "Description",
+                "placeholder": ""
+              }
+            },
+            "stars": {
+              "type": "Select",
+              "config": {
+                "label": "Stars",
+                "placeholder": "",
+                "options": ["5", "4", "3", "2", "1"],
+                "default_value": "5"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

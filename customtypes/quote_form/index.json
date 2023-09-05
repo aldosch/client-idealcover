@@ -1,0 +1,54 @@
+{
+  "id": "quote_form",
+  "label": "Quote Form",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Thank You": {
+      "thank_you_title": {
+        "type": "Text",
+        "config": {
+          "label": "Thank You: Title",
+          "placeholder": "Thank you! We will be in touch within 24 hours."
+        }
+      },
+      "thank_you_sub_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Thank You: Sub Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "thank_you_button_text": {
+        "type": "Text",
+        "config": {
+          "label": "Thank You: Button Text",
+          "placeholder": "Back to home page"
+        }
+      },
+      "thank_you_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "Thank You: Button Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      }
+    },
+    "Sidebar": {
+      "sidebar_content": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Sidebar: Content",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,heading2,heading3,heading4,strong,em,hyperlink,list-item,heading5"
+        }
+      }
+    }
+  }
+}

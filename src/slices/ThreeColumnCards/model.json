@@ -1,0 +1,38 @@
+{
+  "id": "three_cards",
+  "type": "SharedSlice",
+  "name": "ThreeColumnCards",
+  "description": "ThreeCards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Getting insured with us is as easy as 1, 2, 3:",
+            "allowTargetBlank": true,
+            "single": "heading2,heading3,heading4"
+          }
+        }
+      },
+      "items": {
+        "card": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card",
+            "placeholder": "Choose a policy that suits your needs and budget.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        }
+      }
+    }
+  ]
+}

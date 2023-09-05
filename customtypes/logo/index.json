@@ -1,0 +1,19 @@
+{
+  "id": "logo",
+  "label": "Logo",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Link",
+        "config": {
+          "label": "Logo",
+          "placeholder": "",
+          "select": "media"
+        }
+      }
+    }
+  }
+}
