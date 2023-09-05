@@ -2,7 +2,7 @@ import { PrismicPreview } from "@prismicio/next";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { repositoryName } from "@/prismicio";
+import { repositoryName } from "../prismicio";
 
 const inter = Inter({ subsets: ["latin"] });
 
