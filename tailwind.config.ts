@@ -16,8 +16,19 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#ffc864",
+          foreground: "#000",
+          50: "#fff9eb",
+          100: "#ffedc6",
+          200: "#ffd988",
+          300: "#ffc864",
+          400: "#ffa620",
+          500: "#f98207",
+          600: "#dd5d02",
+          700: "#b73e06",
+          800: "#942f0c",
+          900: "#7a280d",
+          950: "#461202",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -50,6 +61,10 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -60,6 +75,7 @@ const config: Config = {
         },
       },
       animation: {
+        "infinite-scroll": "infinite-scroll 30s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
