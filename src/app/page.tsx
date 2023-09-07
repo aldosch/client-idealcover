@@ -1,41 +1,29 @@
 import { Metadata } from "next";
-import { repositoryName } from "../prismicio";
+import { getPrismicData } from "@utils";
 import { SliceZone } from "@prismicio/react";
-import { createClient } from "@prismicio/client";
 import { components } from "../slices";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@ui";
+import { Hero } from "@ui";
 
-export default async function Home() {
-  const client = createClient(repositoryName);
-  const page = await client.getSingle("home");
+const page = await getPrismicData("home");
 
+export const metadata: Metadata = {
+  title: page.data.meta_title,
+  description: page.data.meta_description,
+  openGraph: {
+    images: [page.data.meta_image.url],
+  },
+};
+
+export default async function Page() {
   return (
     <>
-      <h1>Homepage</h1>
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+      <Hero
+        title={page.data.title}
+        subTitle={page.data.subtitle}
+        callToAction={page.data.call_to_action}
+        image={page.data.image}
+      />
       <SliceZone slices={page.data.slices} components={components} />
     </>
   );
-}
-
-export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient(repositoryName);
-  const page = await client.getSingle("home");
-
-  return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
-  };
 }
