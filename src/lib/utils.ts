@@ -1,5 +1,13 @@
+import { createClient } from "@prismicio/client";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { repositoryName } from "../prismicio";
+
+export async function getPrismicData(single: string) {
+  const client = createClient(repositoryName);
+  const data = await client.getSingle(single);
+  return data;
+}
 
 // ### Classname helper: cn() ###
 // Resolves tailwind class conflicts by merging with twMerge
