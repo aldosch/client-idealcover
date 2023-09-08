@@ -4,6 +4,7 @@ import ProductSelect from "./ProductSelect/ProductSelect";
 import LogoCloud from "./LogoCloud/LogoCloud";
 import ClippedImage from "./ClippedImage/ClippedImage";
 import Hero from "./Hero/Hero";
+import Icon from "./Icon/Icon";
 import { Button } from "./Button/Button";
 import { FadeIn, FadeInStagger } from "./FadeIn/FadeIn";
 import {
@@ -45,4 +46,5 @@ export {
   ClippedImage,
   Hero,
   FadeInStagger,
+  Icon,
 };
