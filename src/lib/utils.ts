@@ -3,7 +3,20 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { repositoryName } from "../prismicio";
 
-export async function getPrismicData(single: string) {
+export async function getPrismicData(
+  single:
+    | "about"
+    | "footer"
+    | "home"
+    | "logo"
+    | "menu"
+    | "partner_companies"
+    | "pds"
+    | "privacy_policy"
+    | "product"
+    | "quote_form"
+    | "testimonials"
+): Promise<any> {
   const client = createClient(repositoryName);
   const data = await client.getSingle(single);
   return data;
