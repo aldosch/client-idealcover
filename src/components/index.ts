@@ -1,10 +1,10 @@
 import Card from "./Card/Card";
-import Header from "./Header/Header";
-import ProductSelect from "./ProductSelect/ProductSelect";
-import LogoCloud from "./LogoCloud/LogoCloud";
 import ClippedImage from "./ClippedImage/ClippedImage";
+import Header from "./Header/Header";
 import Hero from "./Hero/Hero";
 import Icon from "./Icon/Icon";
+import LogoCloud from "./LogoCloud/LogoCloud";
+import ProductSelect from "./ProductSelect/ProductSelect";
 import { Button } from "./Button/Button";
 import { FadeIn, FadeInStagger } from "./FadeIn/FadeIn";
 import {
@@ -31,8 +31,14 @@ export {
   AccordionTrigger,
   Button,
   Card,
+  ClippedImage,
   FadeIn,
+  FadeInStagger,
   Header,
+  Hero,
+  Icon,
+  LogoCloud,
+  ProductSelect,
   Sheet,
   SheetClose,
   SheetContent,
@@ -41,10 +47,4 @@ export {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  ProductSelect,
-  LogoCloud,
-  ClippedImage,
-  Hero,
-  FadeInStagger,
-  Icon,
 };
