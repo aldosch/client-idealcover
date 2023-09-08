@@ -5,6 +5,2318 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
+ * Item in *About → Service Cards*
+ */
+export interface AboutDocumentDataServiceCardsItem {
+  /**
+   * Description field in *About → Service Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.service_cards[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+type AboutDocumentDataSlicesSlice =
+  | FaqsSlice
+  | CallToActionSlice
+  | ThreeCardsSlice;
+
+/**
+ * Content for About documents
+ */
+interface AboutDocumentData {
+  /**
+   * Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Service Cards field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.service_cards[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  service_cards: prismic.GroupField<
+    Simplify<AboutDocumentDataServiceCardsItem>
+  >;
+
+  /**
+   * Image field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Hook Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.hook_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hook_title: prismic.KeyTextField;
+
+  /**
+   * Hook Subtitle field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.hook_subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hook_subtitle: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *About*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice>;
+  /**
+   * Meta Description field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: about.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: about.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * About document from Prismic
+ *
+ * - **API ID**: `about`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
+
+/**
+ * Item in *Footer → Socials*
+ */
+export interface FooterDocumentDataSocialsItem {
+  /**
+   * Platform field in *Footer → Socials*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.socials[].platform
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  platform: prismic.SelectField<
+    "Facebook" | "Instagram" | "Linkedin" | "Twitter" | "Youtube"
+  >;
+
+  /**
+   * Link field in *Footer → Socials*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.socials[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Item in *Footer → Additional Links*
+ */
+export interface FooterDocumentDataAdditionalLinksItem {
+  /**
+   * Label field in *Footer → Additional Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.additional_links[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Footer → Additional Links*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.additional_links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.ContentRelationshipField<"pds" | "privacy_policy">;
+}
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Text field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Copyright field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: 2023 Ideal Cover. All Rights Reserved, Ideal Cover Pty Ltd. ABN: 85 667 470 582
+   * - **API ID Path**: footer.copyright
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copyright: prismic.RichTextField;
+
+  /**
+   * Socials field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.socials[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  socials: prismic.GroupField<Simplify<FooterDocumentDataSocialsItem>>;
+
+  /**
+   * Additional Links field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.additional_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  additional_links: prismic.GroupField<
+    Simplify<FooterDocumentDataAdditionalLinksItem>
+  >;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+type HomeDocumentDataSlicesSlice =
+  | FaqsSlice
+  | ThreeCardsSlice
+  | FeatureListSlice
+  | CallToActionSlice
+  | TestimonialsSlice;
+
+/**
+ * Content for Home documents
+ */
+interface HomeDocumentData {
+  /**
+   * Title field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Subtitle field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * Call To Action field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.call_to_action
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  call_to_action: prismic.KeyTextField;
+
+  /**
+   * Image field in *Home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Home*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>;
+  /**
+   * Meta Description field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: home.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: home.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Home document from Prismic
+ *
+ * - **API ID**: `home`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
+
+/**
+ * Content for Logo documents
+ */
+interface LogoDocumentData {
+  /**
+   * Logo field in *Logo*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: logo.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  logo: prismic.LinkToMediaField;
+}
+
+/**
+ * Logo document from Prismic
+ *
+ * - **API ID**: `logo`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LogoDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<LogoDocumentData>, "logo", Lang>;
+
+/**
+ * Item in *Menu → Menu Items*
+ */
+export interface MenuDocumentDataMenuItemsItem {
+  /**
+   * Label field in *Menu → Menu Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.menu_items[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Menu → Menu Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.menu_items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.ContentRelationshipField<
+    "product" | "pds" | "home" | "privacy_policy" | "about"
+  >;
+}
+
+/**
+ * Content for Menu documents
+ */
+interface MenuDocumentData {
+  /**
+   * Menu Items field in *Menu*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.menu_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  menu_items: prismic.GroupField<Simplify<MenuDocumentDataMenuItemsItem>>;
+
+  /**
+   * Phone Number field in *Menu*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: 0278016639
+   * - **API ID Path**: menu.phone_number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  phone_number: prismic.NumberField;
+
+  /**
+   * Phone Number Formatted field in *Menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: (02) 7801 6639
+   * - **API ID Path**: menu.phone_number_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_number_label: prismic.KeyTextField;
+
+  /**
+   * Phone Number Call To Action field in *Menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Call us:
+   * - **API ID Path**: menu.phone_number_call_to_action
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_number_call_to_action: prismic.KeyTextField;
+
+  /**
+   * Call To Action field in *Menu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.call_to_action
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  call_to_action: prismic.KeyTextField;
+}
+
+/**
+ * Menu document from Prismic
+ *
+ * - **API ID**: `menu`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MenuDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<MenuDocumentData>, "menu", Lang>;
+
+/**
+ * Item in *Partner Companies → Partners*
+ */
+export interface PartnerCompaniesDocumentDataPartnersItem {
+  /**
+   * Name field in *Partner Companies → Partners*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_companies.partners[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Logo field in *Partner Companies → Partners*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_companies.partners[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Content for Partner Companies documents
+ */
+interface PartnerCompaniesDocumentData {
+  /**
+   * Partners field in *Partner Companies*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partner_companies.partners[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  partners: prismic.GroupField<
+    Simplify<PartnerCompaniesDocumentDataPartnersItem>
+  >;
+}
+
+/**
+ * Partner Companies document from Prismic
+ *
+ * - **API ID**: `partner_companies`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PartnerCompaniesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PartnerCompaniesDocumentData>,
+    "partner_companies",
+    Lang
+  >;
+
+type PdsDocumentDataSlicesSlice =
+  | CallToActionSlice
+  | FaqsSlice
+  | ThreeCardsSlice;
+
+/**
+ * Content for PDS documents
+ */
+interface PdsDocumentData {
+  /**
+   * Title field in *PDS*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pds.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *PDS*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pds.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *PDS*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pds.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PdsDocumentDataSlicesSlice>;
+  /**
+   * Meta Description field in *PDS*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: pds.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *PDS*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pds.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *PDS*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: pds.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * PDS document from Prismic
+ *
+ * - **API ID**: `pds`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PdsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<PdsDocumentData>, "pds", Lang>;
+
+type PrivacyPolicyDocumentDataSlicesSlice = CallToActionSlice | FaqsSlice;
+
+/**
+ * Content for Privacy Policy documents
+ */
+interface PrivacyPolicyDocumentData {
+  /**
+   * Title field in *Privacy Policy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Privacy policy
+   * - **API ID Path**: privacy_policy.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *Privacy Policy*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: privacy_policy.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Privacy Policy*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: privacy_policy.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PrivacyPolicyDocumentDataSlicesSlice>;
+  /**
+   * Meta Description field in *Privacy Policy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: privacy_policy.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Privacy Policy*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: privacy_policy.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Privacy Policy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: privacy_policy.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Privacy Policy document from Prismic
+ *
+ * - **API ID**: `privacy_policy`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PrivacyPolicyDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PrivacyPolicyDocumentData>,
+    "privacy_policy",
+    Lang
+  >;
+
+/**
+ * Item in *Product → Features*
+ */
+export interface ProductDocumentDataFeaturesItem {
+  /**
+   * Title field in *Product → Features*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.features[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Sub Title field in *Product → Features*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.features[].sub_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_title: prismic.KeyTextField;
+
+  /**
+   * Icon field in *Product → Features*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.features[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<
+    | "accessibility"
+    | "activity-square"
+    | "activity"
+    | "air-vent"
+    | "airplay"
+    | "alarm-check"
+    | "alarm-clock-off"
+    | "alarm-clock"
+    | "alarm-minus"
+    | "alarm-plus"
+    | "album"
+    | "alert-circle"
+    | "alert-octagon"
+    | "alert-triangle"
+    | "align-center-horizontal"
+    | "align-center-vertical"
+    | "align-center"
+    | "align-end-horizontal"
+    | "align-end-vertical"
+    | "align-horizontal-distribute-center"
+    | "align-horizontal-distribute-end"
+    | "align-horizontal-distribute-start"
+    | "align-horizontal-justify-center"
+    | "align-horizontal-justify-end"
+    | "align-horizontal-justify-start"
+    | "align-horizontal-space-around"
+    | "align-horizontal-space-between"
+    | "align-justify"
+    | "align-left"
+    | "align-right"
+    | "align-start-horizontal"
+    | "align-start-vertical"
+    | "align-vertical-distribute-center"
+    | "align-vertical-distribute-end"
+    | "align-vertical-distribute-start"
+    | "align-vertical-justify-center"
+    | "align-vertical-justify-end"
+    | "align-vertical-justify-start"
+    | "align-vertical-space-around"
+    | "align-vertical-space-between"
+    | "ampersand"
+    | "ampersands"
+    | "anchor"
+    | "angry"
+    | "annoyed"
+    | "antenna"
+    | "aperture"
+    | "app-window"
+    | "apple"
+    | "archive-restore"
+    | "archive-x"
+    | "archive"
+    | "area-chart"
+    | "armchair"
+    | "arrow-big-down-dash"
+    | "arrow-big-down"
+    | "arrow-big-left-dash"
+    | "arrow-big-left"
+    | "arrow-big-right-dash"
+    | "arrow-big-right"
+    | "arrow-big-up-dash"
+    | "arrow-big-up"
+    | "arrow-down-0-1"
+    | "arrow-down-1-0"
+    | "arrow-down-a-z"
+    | "arrow-down-circle"
+    | "arrow-down-from-line"
+    | "arrow-down-left-from-circle"
+    | "arrow-down-left-square"
+    | "arrow-down-left"
+    | "arrow-down-narrow-wide"
+    | "arrow-down-right-from-circle"
+    | "arrow-down-right-square"
+    | "arrow-down-right"
+    | "arrow-down-square"
+    | "arrow-down-to-dot"
+    | "arrow-down-to-line"
+    | "arrow-down-up"
+    | "arrow-down-wide-narrow"
+    | "arrow-down-z-a"
+    | "arrow-down"
+    | "arrow-left-circle"
+    | "arrow-left-from-line"
+    | "arrow-left-right"
+    | "arrow-left-square"
+    | "arrow-left-to-line"
+    | "arrow-left"
+    | "arrow-right-circle"
+    | "arrow-right-from-line"
+    | "arrow-right-left"
+    | "arrow-right-square"
+    | "arrow-right-to-line"
+    | "arrow-right"
+    | "arrow-up-0-1"
+    | "arrow-up-1-0"
+    | "arrow-up-a-z"
+    | "arrow-up-circle"
+    | "arrow-up-down"
+    | "arrow-up-from-dot"
+    | "arrow-up-from-line"
+    | "arrow-up-left-from-circle"
+    | "arrow-up-left-square"
+    | "arrow-up-left"
+    | "arrow-up-narrow-wide"
+    | "arrow-up-right-from-circle"
+    | "arrow-up-right-square"
+    | "arrow-up-right"
+    | "arrow-up-square"
+    | "arrow-up-to-line"
+    | "arrow-up-wide-narrow"
+    | "arrow-up-z-a"
+    | "arrow-up"
+    | "arrows-up-from-line"
+    | "asterisk"
+    | "at-sign"
+    | "atom"
+    | "award"
+    | "axe"
+    | "axis-3d"
+    | "baby"
+    | "backpack"
+    | "badge-alert"
+    | "badge-cent"
+    | "badge-check"
+    | "badge-dollar-sign"
+    | "badge-euro"
+    | "badge-help"
+    | "badge-indian-rupee"
+    | "badge-info"
+    | "badge-japanese-yen"
+    | "badge-minus"
+    | "badge-percent"
+    | "badge-plus"
+    | "badge-pound-sterling"
+    | "badge-russian-ruble"
+    | "badge-swiss-franc"
+    | "badge-x"
+    | "badge"
+    | "baggage-claim"
+    | "ban"
+    | "banana"
+    | "banknote"
+    | "bar-chart-2"
+    | "bar-chart-3"
+    | "bar-chart-4"
+    | "bar-chart-big"
+    | "bar-chart-horizontal-big"
+    | "bar-chart-horizontal"
+    | "bar-chart"
+    | "baseline"
+    | "bath"
+    | "battery-charging"
+    | "battery-full"
+    | "battery-low"
+    | "battery-medium"
+    | "battery-warning"
+    | "battery"
+    | "beaker"
+    | "bean-off"
+    | "bean"
+    | "bed-double"
+    | "bed-single"
+    | "bed"
+    | "beef"
+    | "beer"
+    | "bell-dot"
+    | "bell-minus"
+    | "bell-off"
+    | "bell-plus"
+    | "bell-ring"
+    | "bell"
+    | "bike"
+    | "binary"
+    | "biohazard"
+    | "bird"
+    | "bitcoin"
+    | "blinds"
+    | "blocks"
+    | "bluetooth-connected"
+    | "bluetooth-off"
+    | "bluetooth-searching"
+    | "bluetooth"
+    | "bold"
+    | "bomb"
+    | "bone"
+    | "book-copy"
+    | "book-down"
+    | "book-key"
+    | "book-lock"
+    | "book-marked"
+    | "book-minus"
+    | "book-open-check"
+    | "book-open"
+    | "book-plus"
+    | "book-template"
+    | "book-up-2"
+    | "book-up"
+    | "book-x"
+    | "book"
+    | "bookmark-minus"
+    | "bookmark-plus"
+    | "bookmark"
+    | "boom-box"
+    | "bot"
+    | "box-select"
+    | "box"
+    | "boxes"
+    | "braces"
+    | "brackets"
+    | "brain-circuit"
+    | "brain-cog"
+    | "brain"
+    | "briefcase"
+    | "bring-to-front"
+    | "brush"
+    | "bug-off"
+    | "bug-play"
+    | "bug"
+    | "building-2"
+    | "building"
+    | "bus-front"
+    | "bus"
+    | "cable-car"
+    | "cable"
+    | "cake-slice"
+    | "cake"
+    | "calculator"
+    | "calendar-check-2"
+    | "calendar-check"
+    | "calendar-clock"
+    | "calendar-days"
+    | "calendar-heart"
+    | "calendar-minus"
+    | "calendar-off"
+    | "calendar-plus"
+    | "calendar-range"
+    | "calendar-search"
+    | "calendar-x-2"
+    | "calendar-x"
+    | "calendar"
+    | "camera-off"
+    | "camera"
+    | "candlestick-chart"
+    | "candy-cane"
+    | "candy-off"
+    | "candy"
+    | "car-front"
+    | "car-taxi-front"
+    | "car"
+    | "carrot"
+    | "case-lower"
+    | "case-sensitive"
+    | "case-upper"
+    | "cassette-tape"
+    | "cast"
+    | "castle"
+    | "cat"
+    | "check-check"
+    | "check-circle-2"
+    | "check-circle"
+    | "check-square"
+    | "check"
+    | "chef-hat"
+    | "cherry"
+    | "chevron-down-circle"
+    | "chevron-down-square"
+    | "chevron-down"
+    | "chevron-first"
+    | "chevron-last"
+    | "chevron-left-circle"
+    | "chevron-left-square"
+    | "chevron-left"
+    | "chevron-right-circle"
+    | "chevron-right-square"
+    | "chevron-right"
+    | "chevron-up-circle"
+    | "chevron-up-square"
+    | "chevron-up"
+    | "chevrons-down-up"
+    | "chevrons-down"
+    | "chevrons-left-right"
+    | "chevrons-left"
+    | "chevrons-right-left"
+    | "chevrons-right"
+    | "chevrons-up-down"
+    | "chevrons-up"
+    | "chrome"
+    | "church"
+    | "cigarette-off"
+    | "cigarette"
+    | "circle-dashed"
+    | "circle-dollar-sign"
+    | "circle-dot-dashed"
+    | "circle-dot"
+    | "circle-ellipsis"
+    | "circle-equal"
+    | "circle-off"
+    | "circle-slash-2"
+    | "circle-slash"
+    | "circle"
+    | "circuit-board"
+    | "citrus"
+    | "clapperboard"
+    | "clipboard-check"
+    | "clipboard-copy"
+    | "clipboard-edit"
+    | "clipboard-list"
+    | "clipboard-paste"
+    | "clipboard-signature"
+    | "clipboard-type"
+    | "clipboard-x"
+    | "clipboard"
+    | "clock-1"
+    | "clock-10"
+    | "clock-11"
+    | "clock-12"
+    | "clock-2"
+    | "clock-3"
+    | "clock-4"
+    | "clock-5"
+    | "clock-6"
+    | "clock-7"
+    | "clock-8"
+    | "clock-9"
+    | "clock"
+    | "cloud-cog"
+    | "cloud-drizzle"
+    | "cloud-fog"
+    | "cloud-hail"
+    | "cloud-lightning"
+    | "cloud-moon-rain"
+    | "cloud-moon"
+    | "cloud-off"
+    | "cloud-rain-wind"
+    | "cloud-rain"
+    | "cloud-snow"
+    | "cloud-sun-rain"
+    | "cloud-sun"
+    | "cloud"
+    | "cloudy"
+    | "clover"
+    | "club"
+    | "code-2"
+    | "code"
+    | "codepen"
+    | "codesandbox"
+    | "coffee"
+    | "cog"
+    | "coins"
+    | "columns"
+    | "combine"
+    | "command"
+    | "compass"
+    | "component"
+    | "computer"
+    | "concierge-bell"
+    | "construction"
+    | "contact-2"
+    | "contact"
+    | "container"
+    | "contrast"
+    | "cookie"
+    | "copy-check"
+    | "copy-minus"
+    | "copy-plus"
+    | "copy-slash"
+    | "copy-x"
+    | "copy"
+    | "copyleft"
+    | "copyright"
+    | "corner-down-left"
+    | "corner-down-right"
+    | "corner-left-down"
+    | "corner-left-up"
+    | "corner-right-down"
+    | "corner-right-up"
+    | "corner-up-left"
+    | "corner-up-right"
+    | "cpu"
+    | "creative-commons"
+    | "credit-card"
+    | "croissant"
+    | "crop"
+    | "cross"
+    | "crosshair"
+    | "crown"
+    | "cup-soda"
+    | "currency"
+    | "database-backup"
+    | "database-zap"
+    | "database"
+    | "delete"
+    | "dessert"
+    | "diamond"
+    | "dice-1"
+    | "dice-2"
+    | "dice-3"
+    | "dice-4"
+    | "dice-5"
+    | "dice-6"
+    | "dices"
+    | "diff"
+    | "disc-2"
+    | "disc-3"
+    | "disc"
+    | "divide-circle"
+    | "divide-square"
+    | "divide"
+    | "dna-off"
+    | "dna"
+    | "dog"
+    | "dollar-sign"
+    | "donut"
+    | "door-closed"
+    | "door-open"
+    | "dot"
+    | "download-cloud"
+    | "download"
+    | "dribbble"
+    | "droplet"
+    | "droplets"
+    | "drumstick"
+    | "dumbbell"
+    | "ear-off"
+    | "ear"
+    | "egg-fried"
+    | "egg-off"
+    | "egg"
+    | "equal-not"
+    | "equal"
+    | "eraser"
+    | "euro"
+    | "expand"
+    | "external-link"
+    | "eye-off"
+    | "eye"
+    | "facebook"
+    | "factory"
+    | "fan"
+    | "fast-forward"
+    | "feather"
+    | "ferris-wheel"
+    | "figma"
+    | "file-archive"
+    | "file-audio-2"
+    | "file-audio"
+    | "file-axis-3d"
+    | "file-badge-2"
+    | "file-badge"
+    | "file-bar-chart-2"
+    | "file-bar-chart"
+    | "file-box"
+    | "file-check-2"
+    | "file-check"
+    | "file-clock"
+    | "file-code-2"
+    | "file-code"
+    | "file-cog"
+    | "file-diff"
+    | "file-digit"
+    | "file-down"
+    | "file-edit"
+    | "file-heart"
+    | "file-image"
+    | "file-input"
+    | "file-json-2"
+    | "file-json"
+    | "file-key-2"
+    | "file-key"
+    | "file-line-chart"
+    | "file-lock-2"
+    | "file-lock"
+    | "file-minus-2"
+    | "file-minus"
+    | "file-output"
+    | "file-pie-chart"
+    | "file-plus-2"
+    | "file-plus"
+    | "file-question"
+    | "file-scan"
+    | "file-search-2"
+    | "file-search"
+    | "file-signature"
+    | "file-spreadsheet"
+    | "file-stack"
+    | "file-symlink"
+    | "file-terminal"
+    | "file-text"
+    | "file-type-2"
+    | "file-type"
+    | "file-up"
+    | "file-video-2"
+    | "file-video"
+    | "file-volume-2"
+    | "file-volume"
+    | "file-warning"
+    | "file-x-2"
+    | "file-x"
+    | "file"
+    | "files"
+    | "film"
+    | "filter-x"
+    | "filter"
+    | "fingerprint"
+    | "fish-off"
+    | "fish-symbol"
+    | "fish"
+    | "flag-off"
+    | "flag-triangle-left"
+    | "flag-triangle-right"
+    | "flag"
+    | "flame"
+    | "flashlight-off"
+    | "flashlight"
+    | "flask-conical-off"
+    | "flask-conical"
+    | "flask-round"
+    | "flip-horizontal-2"
+    | "flip-horizontal"
+    | "flip-vertical-2"
+    | "flip-vertical"
+    | "flower-2"
+    | "flower"
+    | "focus"
+    | "fold-horizontal"
+    | "fold-vertical"
+    | "folder-archive"
+    | "folder-check"
+    | "folder-clock"
+    | "folder-closed"
+    | "folder-cog"
+    | "folder-dot"
+    | "folder-down"
+    | "folder-edit"
+    | "folder-git-2"
+    | "folder-git"
+    | "folder-heart"
+    | "folder-input"
+    | "folder-kanban"
+    | "folder-key"
+    | "folder-lock"
+    | "folder-minus"
+    | "folder-open-dot"
+    | "folder-open"
+    | "folder-output"
+    | "folder-plus"
+    | "folder-root"
+    | "folder-search-2"
+    | "folder-search"
+    | "folder-symlink"
+    | "folder-sync"
+    | "folder-tree"
+    | "folder-up"
+    | "folder-x"
+    | "folder"
+    | "folders"
+    | "footprints"
+    | "forklift"
+    | "form-input"
+    | "forward"
+    | "frame"
+    | "framer"
+    | "frown"
+    | "fuel"
+    | "function-square"
+    | "gallery-horizontal-end"
+    | "gallery-horizontal"
+    | "gallery-thumbnails"
+    | "gallery-vertical-end"
+    | "gallery-vertical"
+    | "gamepad-2"
+    | "gamepad"
+    | "gantt-chart-square"
+    | "gantt-chart"
+    | "gauge-circle"
+    | "gauge"
+    | "gavel"
+    | "gem"
+    | "ghost"
+    | "gift"
+    | "git-branch-plus"
+    | "git-branch"
+    | "git-commit"
+    | "git-compare"
+    | "git-fork"
+    | "git-merge"
+    | "git-pull-request-closed"
+    | "git-pull-request-draft"
+    | "git-pull-request"
+    | "github"
+    | "gitlab"
+    | "glass-water"
+    | "glasses"
+    | "globe-2"
+    | "globe"
+    | "goal"
+    | "grab"
+    | "graduation-cap"
+    | "grape"
+    | "grid-2x2"
+    | "grid-3x3"
+    | "grip-horizontal"
+    | "grip-vertical"
+    | "grip"
+    | "group"
+    | "hammer"
+    | "hand-metal"
+    | "hand"
+    | "hard-drive-download"
+    | "hard-drive-upload"
+    | "hard-drive"
+    | "hard-hat"
+    | "hash"
+    | "haze"
+    | "hdmi-port"
+    | "heading-1"
+    | "heading-2"
+    | "heading-3"
+    | "heading-4"
+    | "heading-5"
+    | "heading-6"
+    | "heading"
+    | "headphones"
+    | "heart-crack"
+    | "heart-handshake"
+    | "heart-off"
+    | "heart-pulse"
+    | "heart"
+    | "help-circle"
+    | "helping-hand"
+    | "hexagon"
+    | "highlighter"
+    | "history"
+    | "home"
+    | "hop-off"
+    | "hop"
+    | "hotel"
+    | "hourglass"
+    | "ice-cream-2"
+    | "ice-cream"
+    | "image-minus"
+    | "image-off"
+    | "image-plus"
+    | "image"
+    | "import"
+    | "inbox"
+    | "indent"
+    | "indian-rupee"
+    | "infinity"
+    | "info"
+    | "instagram"
+    | "italic"
+    | "iteration-ccw"
+    | "iteration-cw"
+    | "japanese-yen"
+    | "joystick"
+    | "kanban-square-dashed"
+    | "kanban-square"
+    | "kanban"
+    | "key-round"
+    | "key-square"
+    | "key"
+    | "keyboard"
+    | "lamp-ceiling"
+    | "lamp-desk"
+    | "lamp-floor"
+    | "lamp-wall-down"
+    | "lamp-wall-up"
+    | "lamp"
+    | "landmark"
+    | "languages"
+    | "laptop-2"
+    | "laptop"
+    | "lasso-select"
+    | "lasso"
+    | "laugh"
+    | "layers"
+    | "layout-dashboard"
+    | "layout-grid"
+    | "layout-list"
+    | "layout-panel-left"
+    | "layout-panel-top"
+    | "layout-template"
+    | "layout"
+    | "leaf"
+    | "leafy-green"
+    | "library"
+    | "life-buoy"
+    | "ligature"
+    | "lightbulb-off"
+    | "lightbulb"
+    | "line-chart"
+    | "link-2-off"
+    | "link-2"
+    | "link"
+    | "linkedin"
+    | "list-checks"
+    | "list-end"
+    | "list-filter"
+    | "list-minus"
+    | "list-music"
+    | "list-ordered"
+    | "list-plus"
+    | "list-restart"
+    | "list-start"
+    | "list-todo"
+    | "list-tree"
+    | "list-video"
+    | "list-x"
+    | "list"
+    | "loader-2"
+    | "loader"
+    | "locate-fixed"
+    | "locate-off"
+    | "locate"
+    | "lock"
+    | "log-in"
+    | "log-out"
+    | "lollipop"
+    | "luggage"
+    | "m-square"
+    | "magnet"
+    | "mail-check"
+    | "mail-minus"
+    | "mail-open"
+    | "mail-plus"
+    | "mail-question"
+    | "mail-search"
+    | "mail-warning"
+    | "mail-x"
+    | "mail"
+    | "mailbox"
+    | "mails"
+    | "map-pin-off"
+    | "map-pin"
+    | "map"
+    | "martini"
+    | "maximize-2"
+    | "maximize"
+    | "medal"
+    | "megaphone-off"
+    | "megaphone"
+    | "meh"
+    | "memory-stick"
+    | "menu-square"
+    | "menu"
+    | "merge"
+    | "message-circle"
+    | "message-square-dashed"
+    | "message-square-plus"
+    | "message-square"
+    | "messages-square"
+    | "mic-2"
+    | "mic-off"
+    | "mic"
+    | "microscope"
+    | "microwave"
+    | "milestone"
+    | "milk-off"
+    | "milk"
+    | "minimize-2"
+    | "minimize"
+    | "minus-circle"
+    | "minus-square"
+    | "minus"
+    | "monitor-check"
+    | "monitor-dot"
+    | "monitor-down"
+    | "monitor-off"
+    | "monitor-pause"
+    | "monitor-play"
+    | "monitor-smartphone"
+    | "monitor-speaker"
+    | "monitor-stop"
+    | "monitor-up"
+    | "monitor-x"
+    | "monitor"
+    | "moon-star"
+    | "moon"
+    | "more-horizontal"
+    | "more-vertical"
+    | "mountain-snow"
+    | "mountain"
+    | "mouse-pointer-2"
+    | "mouse-pointer-click"
+    | "mouse-pointer-square-dashed"
+    | "mouse-pointer-square"
+    | "mouse-pointer"
+    | "mouse"
+    | "move-3d"
+    | "move-diagonal-2"
+    | "move-diagonal"
+    | "move-down-left"
+    | "move-down-right"
+    | "move-down"
+    | "move-horizontal"
+    | "move-left"
+    | "move-right"
+    | "move-up-left"
+    | "move-up-right"
+    | "move-up"
+    | "move-vertical"
+    | "move"
+    | "music-2"
+    | "music-3"
+    | "music-4"
+    | "music"
+    | "navigation-2-off"
+    | "navigation-2"
+    | "navigation-off"
+    | "navigation"
+    | "network"
+    | "newspaper"
+    | "nfc"
+    | "nut-off"
+    | "nut"
+    | "octagon"
+    | "option"
+    | "orbit"
+    | "outdent"
+    | "package-2"
+    | "package-check"
+    | "package-minus"
+    | "package-open"
+    | "package-plus"
+    | "package-search"
+    | "package-x"
+    | "package"
+    | "paint-bucket"
+    | "paintbrush-2"
+    | "paintbrush"
+    | "palette"
+    | "palmtree"
+    | "panel-bottom-close"
+    | "panel-bottom-inactive"
+    | "panel-bottom-open"
+    | "panel-bottom"
+    | "panel-left-close"
+    | "panel-left-inactive"
+    | "panel-left-open"
+    | "panel-left"
+    | "panel-right-close"
+    | "panel-right-inactive"
+    | "panel-right-open"
+    | "panel-right"
+    | "panel-top-close"
+    | "panel-top-inactive"
+    | "panel-top-open"
+    | "panel-top"
+    | "paperclip"
+    | "parentheses"
+    | "parking-circle-off"
+    | "parking-circle"
+    | "parking-meter"
+    | "parking-square-off"
+    | "parking-square"
+    | "party-popper"
+    | "pause-circle"
+    | "pause-octagon"
+    | "pause"
+    | "paw-print"
+    | "pc-case"
+    | "pen-line"
+    | "pen-square"
+    | "pen-tool"
+    | "pen"
+    | "pencil-line"
+    | "pencil-ruler"
+    | "pencil"
+    | "percent-circle"
+    | "percent-diamond"
+    | "percent-square"
+    | "percent"
+    | "person-standing"
+    | "phone-call"
+    | "phone-forwarded"
+    | "phone-incoming"
+    | "phone-missed"
+    | "phone-off"
+    | "phone-outgoing"
+    | "phone"
+    | "pi-square"
+    | "pi"
+    | "picture-in-picture-2"
+    | "picture-in-picture"
+    | "pie-chart"
+    | "piggy-bank"
+    | "pilcrow-square"
+    | "pilcrow"
+    | "pill"
+    | "pin-off"
+    | "pin"
+    | "pipette"
+    | "pizza"
+    | "plane-landing"
+    | "plane-takeoff"
+    | "plane"
+    | "play-circle"
+    | "play-square"
+    | "play"
+    | "plug-2"
+    | "plug-zap-2"
+    | "plug-zap"
+    | "plug"
+    | "plus-circle"
+    | "plus-square"
+    | "plus"
+    | "pocket-knife"
+    | "pocket"
+    | "podcast"
+    | "pointer"
+    | "popcorn"
+    | "popsicle"
+    | "pound-sterling"
+    | "power-off"
+    | "power"
+    | "presentation"
+    | "printer"
+    | "projector"
+    | "puzzle"
+    | "qr-code"
+    | "quote"
+    | "rabbit"
+    | "radar"
+    | "radiation"
+    | "radio-receiver"
+    | "radio-tower"
+    | "radio"
+    | "rail-symbol"
+    | "rainbow"
+    | "rat"
+    | "ratio"
+    | "receipt"
+    | "rectangle-horizontal"
+    | "rectangle-vertical"
+    | "recycle"
+    | "redo-2"
+    | "redo-dot"
+    | "redo"
+    | "refresh-ccw-dot"
+    | "refresh-ccw"
+    | "refresh-cw-off"
+    | "refresh-cw"
+    | "refrigerator"
+    | "regex"
+    | "remove-formatting"
+    | "repeat-1"
+    | "repeat-2"
+    | "repeat"
+    | "replace-all"
+    | "replace"
+    | "reply-all"
+    | "reply"
+    | "rewind"
+    | "rocket"
+    | "rocking-chair"
+    | "roller-coaster"
+    | "rotate-3d"
+    | "rotate-ccw"
+    | "rotate-cw"
+    | "router"
+    | "rows"
+    | "rss"
+    | "ruler"
+    | "russian-ruble"
+    | "sailboat"
+    | "salad"
+    | "sandwich"
+    | "satellite-dish"
+    | "satellite"
+    | "save-all"
+    | "save"
+    | "scale-3d"
+    | "scale"
+    | "scaling"
+    | "scan-face"
+    | "scan-line"
+    | "scan"
+    | "scatter-chart"
+    | "school-2"
+    | "school"
+    | "scissors-line-dashed"
+    | "scissors-square-dashed-bottom"
+    | "scissors-square"
+    | "scissors"
+    | "screen-share-off"
+    | "screen-share"
+    | "scroll-text"
+    | "scroll"
+    | "search-check"
+    | "search-code"
+    | "search-slash"
+    | "search-x"
+    | "search"
+    | "send-horizontal"
+    | "send-to-back"
+    | "send"
+    | "separator-horizontal"
+    | "separator-vertical"
+    | "server-cog"
+    | "server-crash"
+    | "server-off"
+    | "server"
+    | "settings-2"
+    | "settings"
+    | "shapes"
+    | "share-2"
+    | "share"
+    | "sheet"
+    | "shell"
+    | "shield-alert"
+    | "shield-ban"
+    | "shield-check"
+    | "shield-ellipsis"
+    | "shield-half"
+    | "shield-minus"
+    | "shield-off"
+    | "shield-plus"
+    | "shield-question"
+    | "shield-x"
+    | "shield"
+    | "ship-wheel"
+    | "ship"
+    | "shirt"
+    | "shopping-bag"
+    | "shopping-basket"
+    | "shopping-cart"
+    | "shovel"
+    | "shower-head"
+    | "shrink"
+    | "shrub"
+    | "shuffle"
+    | "sigma-square"
+    | "sigma"
+    | "signal-high"
+    | "signal-low"
+    | "signal-medium"
+    | "signal-zero"
+    | "signal"
+    | "siren"
+    | "skip-back"
+    | "skip-forward"
+    | "skull"
+    | "slack"
+    | "slash"
+    | "slice"
+    | "sliders-horizontal"
+    | "sliders"
+    | "smartphone-charging"
+    | "smartphone-nfc"
+    | "smartphone"
+    | "smile-plus"
+    | "smile"
+    | "snail"
+    | "snowflake"
+    | "sofa"
+    | "soup"
+    | "space"
+    | "spade"
+    | "sparkle"
+    | "sparkles"
+    | "speaker"
+    | "spell-check-2"
+    | "spell-check"
+    | "spline"
+    | "split-square-horizontal"
+    | "split-square-vertical"
+    | "split"
+    | "spray-can"
+    | "sprout"
+    | "square-asterisk"
+    | "square-code"
+    | "square-dashed-bottom-code"
+    | "square-dashed-bottom"
+    | "square-dot"
+    | "square-equal"
+    | "square-slash"
+    | "square-stack"
+    | "square"
+    | "squirrel"
+    | "stamp"
+    | "star-half"
+    | "star-off"
+    | "star"
+    | "step-back"
+    | "step-forward"
+    | "stethoscope"
+    | "sticker"
+    | "sticky-note"
+    | "stop-circle"
+    | "store"
+    | "stretch-horizontal"
+    | "stretch-vertical"
+    | "strikethrough"
+    | "subscript"
+    | "subtitles"
+    | "sun-dim"
+    | "sun-medium"
+    | "sun-moon"
+    | "sun-snow"
+    | "sun"
+    | "sunrise"
+    | "sunset"
+    | "superscript"
+    | "swiss-franc"
+    | "switch-camera"
+    | "sword"
+    | "swords"
+    | "syringe"
+    | "table-2"
+    | "table-properties"
+    | "table"
+    | "tablet-smartphone"
+    | "tablet"
+    | "tablets"
+    | "tag"
+    | "tags"
+    | "tally-1"
+    | "tally-2"
+    | "tally-3"
+    | "tally-4"
+    | "tally-5"
+    | "target"
+    | "tent"
+    | "terminal-square"
+    | "terminal"
+    | "test-tube-2"
+    | "test-tube"
+    | "test-tubes"
+    | "text-cursor-input"
+    | "text-cursor"
+    | "text-quote"
+    | "text-select"
+    | "text"
+    | "thermometer-snowflake"
+    | "thermometer-sun"
+    | "thermometer"
+    | "thumbs-down"
+    | "thumbs-up"
+    | "ticket"
+    | "timer-off"
+    | "timer-reset"
+    | "timer"
+    | "toggle-left"
+    | "toggle-right"
+    | "tornado"
+    | "touchpad-off"
+    | "touchpad"
+    | "tower-control"
+    | "toy-brick"
+    | "tractor"
+    | "traffic-cone"
+    | "train-front-tunnel"
+    | "train-front"
+    | "train-track"
+    | "tram-front"
+    | "trash-2"
+    | "trash"
+    | "tree-deciduous"
+    | "tree-pine"
+    | "trees"
+    | "trello"
+    | "trending-down"
+    | "trending-up"
+    | "triangle-right"
+    | "triangle"
+    | "trophy"
+    | "truck"
+    | "turtle"
+    | "tv-2"
+    | "tv"
+    | "twitch"
+    | "twitter"
+    | "type"
+    | "umbrella"
+    | "underline"
+    | "undo-2"
+    | "undo-dot"
+    | "undo"
+    | "unfold-horizontal"
+    | "unfold-vertical"
+    | "ungroup"
+    | "unlink-2"
+    | "unlink"
+    | "unlock"
+    | "unplug"
+    | "upload-cloud"
+    | "upload"
+    | "usb"
+    | "user-2"
+    | "user-check-2"
+    | "user-check"
+    | "user-circle-2"
+    | "user-circle"
+    | "user-cog-2"
+    | "user-cog"
+    | "user-minus-2"
+    | "user-minus"
+    | "user-plus-2"
+    | "user-plus"
+    | "user-square-2"
+    | "user-square"
+    | "user-x-2"
+    | "user-x"
+    | "user"
+    | "users-2"
+    | "users"
+    | "utensils-crossed"
+    | "utensils"
+    | "utility-pole"
+    | "variable"
+    | "vegan"
+    | "venetian-mask"
+    | "vibrate-off"
+    | "vibrate"
+    | "video-off"
+    | "video"
+    | "videotape"
+    | "view"
+    | "voicemail"
+    | "volume-1"
+    | "volume-2"
+    | "volume-x"
+    | "volume"
+    | "vote"
+    | "wallet-2"
+    | "wallet-cards"
+    | "wallet"
+    | "wallpaper"
+    | "wand-2"
+    | "wand"
+    | "warehouse"
+    | "watch"
+    | "waves"
+    | "webcam"
+    | "webhook"
+    | "wheat-off"
+    | "wheat"
+    | "whole-word"
+    | "wifi-off"
+    | "wifi"
+    | "wind"
+    | "wine-off"
+    | "wine"
+    | "workflow"
+    | "wrap-text"
+    | "wrench"
+    | "x-circle"
+    | "x-octagon"
+    | "x-square"
+    | "x"
+    | "youtube"
+    | "zap-off"
+    | "zap"
+    | "zoom-in"
+    | "zoom-out"
+  >;
+}
+
+type ProductDocumentDataSlicesSlice =
+  | FaqsSlice
+  | ThreeCardsSlice
+  | CallToActionSlice;
+
+/**
+ * Content for Product documents
+ */
+interface ProductDocumentData {
+  /**
+   * Name field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Income protection
+   * - **API ID Path**: product.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Features field in *Product*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.features[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  features: prismic.GroupField<Simplify<ProductDocumentDataFeaturesItem>>;
+
+  /**
+   * Hook Title field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Only 31% of Australians have income protection.
+   * - **API ID Path**: product.hook_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hook_title: prismic.KeyTextField;
+
+  /**
+   * Hook Sub Title field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Don't leave your financial future up to chance. Act now to secure your income.
+   * - **API ID Path**: product.hook_sub_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hook_sub_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Product*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>;
+  /**
+   * Meta Description field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: product.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: product.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Product document from Prismic
+ *
+ * - **API ID**: `product`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProductDocumentData>,
+    "product",
+    Lang
+  >;
+
+/**
+ * Content for Quote Form documents
+ */
+interface QuoteFormDocumentData {
+  /**
+   * Thank You: Title field in *Quote Form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Thank you! We will be in touch within 24 hours.
+   * - **API ID Path**: quote_form.thank_you_title
+   * - **Tab**: Thank You
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  thank_you_title: prismic.KeyTextField;
+
+  /**
+   * Thank You: Sub Title field in *Quote Form*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote_form.thank_you_sub_title
+   * - **Tab**: Thank You
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  thank_you_sub_title: prismic.RichTextField;
+
+  /**
+   * Thank You: Button Text field in *Quote Form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Back to home page
+   * - **API ID Path**: quote_form.thank_you_button_text
+   * - **Tab**: Thank You
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  thank_you_button_text: prismic.KeyTextField;
+
+  /**
+   * Thank You: Button Link field in *Quote Form*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote_form.thank_you_button_link
+   * - **Tab**: Thank You
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  thank_you_button_link: prismic.LinkField;
+  /**
+   * Sidebar: Content field in *Quote Form*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote_form.sidebar_content
+   * - **Tab**: Sidebar
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sidebar_content: prismic.RichTextField;
+}
+
+/**
+ * Quote Form document from Prismic
+ *
+ * - **API ID**: `quote_form`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type QuoteFormDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<QuoteFormDocumentData>,
+    "quote_form",
+    Lang
+  >;
+
+/**
+ * Item in *Testimonials → Testimonials*
+ */
+export interface TestimonialsDocumentDataTestimonialsItem {
+  /**
+   * Review field in *Testimonials → Testimonials*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonials[].review
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  review: prismic.RichTextField;
+
+  /**
+   * Name field in *Testimonials → Testimonials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonials[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Description field in *Testimonials → Testimonials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonials[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Stars field in *Testimonials → Testimonials*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 5
+   * - **API ID Path**: testimonials.testimonials[].stars
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  stars: prismic.SelectField<"5" | "4" | "3" | "2" | "1", "filled">;
+}
+
+/**
+ * Content for Testimonials documents
+ */
+interface TestimonialsDocumentData {
+  /**
+   * Testimonials field in *Testimonials*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonials[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  testimonials: prismic.GroupField<
+    Simplify<TestimonialsDocumentDataTestimonialsItem>
+  >;
+}
+
+/**
+ * Testimonials document from Prismic
+ *
+ * - **API ID**: `testimonials`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TestimonialsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<TestimonialsDocumentData>,
+    "testimonials",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | AboutDocument
+  | FooterDocument
+  | HomeDocument
+  | LogoDocument
+  | MenuDocument
+  | PartnerCompaniesDocument
+  | PdsDocument
+  | PrivacyPolicyDocument
+  | ProductDocument
+  | QuoteFormDocument
+  | TestimonialsDocument;
+
+/**
  * Primary content in *CallToAction → Primary*
  */
 export interface CallToActionSliceDefaultPrimary {
@@ -4204,21 +6516,36 @@ export interface ThreeCardsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   heading: prismic.TitleField;
-}
 
-/**
- * Primary content in *ThreeColumnCards → Items*
- */
-export interface ThreeCardsSliceDefaultItem {
   /**
-   * Card field in *ThreeColumnCards → Items*
+   * Card One field in *ThreeColumnCards → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Choose a policy that suits your needs and budget.
-   * - **API ID Path**: three_cards.items[].card
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_cards.primary.card_one
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  card: prismic.RichTextField;
+  card_one: prismic.RichTextField;
+
+  /**
+   * Card Two field in *ThreeColumnCards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_cards.primary.card_two
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_two: prismic.RichTextField;
+
+  /**
+   * Card Three field in *ThreeColumnCards → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_cards.primary.card_three
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_three: prismic.RichTextField;
 }
 
 /**
@@ -4231,7 +6558,7 @@ export interface ThreeCardsSliceDefaultItem {
 export type ThreeCardsSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<ThreeCardsSliceDefaultPrimary>,
-  Simplify<ThreeCardsSliceDefaultItem>
+  never
 >;
 
 /**
@@ -4256,11 +6583,46 @@ declare module "@prismicio/client" {
     (
       repositoryNameOrEndpoint: string,
       options?: prismic.ClientConfig
-    ): prismic.Client;
+    ): prismic.Client<AllDocumentTypes>;
   }
 
   namespace Content {
     export type {
+      AboutDocument,
+      AboutDocumentData,
+      AboutDocumentDataServiceCardsItem,
+      AboutDocumentDataSlicesSlice,
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSocialsItem,
+      FooterDocumentDataAdditionalLinksItem,
+      HomeDocument,
+      HomeDocumentData,
+      HomeDocumentDataSlicesSlice,
+      LogoDocument,
+      LogoDocumentData,
+      MenuDocument,
+      MenuDocumentData,
+      MenuDocumentDataMenuItemsItem,
+      PartnerCompaniesDocument,
+      PartnerCompaniesDocumentData,
+      PartnerCompaniesDocumentDataPartnersItem,
+      PdsDocument,
+      PdsDocumentData,
+      PdsDocumentDataSlicesSlice,
+      PrivacyPolicyDocument,
+      PrivacyPolicyDocumentData,
+      PrivacyPolicyDocumentDataSlicesSlice,
+      ProductDocument,
+      ProductDocumentData,
+      ProductDocumentDataFeaturesItem,
+      ProductDocumentDataSlicesSlice,
+      QuoteFormDocument,
+      QuoteFormDocumentData,
+      TestimonialsDocument,
+      TestimonialsDocumentData,
+      TestimonialsDocumentDataTestimonialsItem,
+      AllDocumentTypes,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
       CallToActionSliceVariation,
@@ -4287,7 +6649,6 @@ declare module "@prismicio/client" {
       TestimonialsSliceDefault,
       ThreeCardsSlice,
       ThreeCardsSliceDefaultPrimary,
-      ThreeCardsSliceDefaultItem,
       ThreeCardsSliceVariation,
       ThreeCardsSliceDefault,
     };
