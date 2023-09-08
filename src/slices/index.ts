@@ -7,5 +7,6 @@ export const components = {
   faqs: dynamic(() => import("./Faqs")),
   feature_list: dynamic(() => import("./FeatureList")),
   testimonials: dynamic(() => import("./Testimonials")),
+  text_section: dynamic(() => import("./TextSection")),
   three_cards: dynamic(() => import("./ThreeColumnCards")),
 };

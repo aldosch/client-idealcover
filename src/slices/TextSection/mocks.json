@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"header": {
+				"__TYPE__": "FieldContent",
+				"value": "active",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint ea consequat quis non nisi. Sunt occaecat fugiat laborum irure voluptate exercitation pariatur adipisicing pariatur irure dolor."
+						}
+					}
+				]
+			},
+			"text_align": {
+				"__TYPE__": "FieldContent",
+				"value": "Center",
+				"type": "Select"
+			}
+		},
+		"items": []
+	}
+]

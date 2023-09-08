@@ -94,7 +94,7 @@ interface AboutDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice>
   /**
    * Meta Description field in *About*
    *
@@ -103,7 +103,7 @@ interface AboutDocumentData {
    * - **API ID Path**: about.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
+   */;
   meta_description: prismic.KeyTextField;
 
   /**
@@ -265,7 +265,8 @@ type HomeDocumentDataSlicesSlice =
   | ThreeCardsSlice
   | FeatureListSlice
   | CallToActionSlice
-  | TestimonialsSlice;
+  | TestimonialsSlice
+  | TextSectionSlice;
 
 /**
  * Content for Home documents
@@ -324,7 +325,7 @@ interface HomeDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>
   /**
    * Meta Description field in *Home*
    *
@@ -333,7 +334,7 @@ interface HomeDocumentData {
    * - **API ID Path**: home.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
+   */;
   meta_description: prismic.KeyTextField;
 
   /**
@@ -597,7 +598,7 @@ interface PdsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PdsDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<PdsDocumentDataSlicesSlice>
   /**
    * Meta Description field in *PDS*
    *
@@ -606,7 +607,7 @@ interface PdsDocumentData {
    * - **API ID Path**: pds.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
+   */;
   meta_description: prismic.KeyTextField;
 
   /**
@@ -681,7 +682,7 @@ interface PrivacyPolicyDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PrivacyPolicyDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<PrivacyPolicyDocumentDataSlicesSlice>
   /**
    * Meta Description field in *Privacy Policy*
    *
@@ -690,7 +691,7 @@ interface PrivacyPolicyDocumentData {
    * - **API ID Path**: privacy_policy.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
+   */;
   meta_description: prismic.KeyTextField;
 
   /**
@@ -2081,7 +2082,7 @@ interface ProductDocumentData {
    * Hook Sub Title field in *Product*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Don't leave your financial future up to chance. Act now to secure your income.
+   * - **Placeholder**: Don't leave your financial future up to chance.  Act now to secure your income.
    * - **API ID Path**: product.hook_sub_title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -2097,7 +2098,7 @@ interface ProductDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>
   /**
    * Meta Description field in *Product*
    *
@@ -2106,7 +2107,7 @@ interface ProductDocumentData {
    * - **API ID Path**: product.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
+   */;
   meta_description: prismic.KeyTextField;
 
   /**
@@ -2194,7 +2195,7 @@ interface QuoteFormDocumentData {
    * - **Tab**: Thank You
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  thank_you_button_link: prismic.LinkField;
+  thank_you_button_link: prismic.LinkField
   /**
    * Sidebar: Content field in *Quote Form*
    *
@@ -2203,7 +2204,7 @@ interface QuoteFormDocumentData {
    * - **API ID Path**: quote_form.sidebar_content
    * - **Tab**: Sidebar
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
+   */;
   sidebar_content: prismic.RichTextField;
 }
 
@@ -2334,7 +2335,7 @@ export interface CallToActionSliceDefaultPrimary {
    * Sub Title field in *CallToAction → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Secure your future with our easy-to-use and free quote service. Why pay more than you need to?
+   * - **Placeholder**: Secure your future with our easy-to-use and free quote service.  Why pay more than you need to?
    * - **API ID Path**: call_to_action.primary.sub_title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -6504,6 +6505,72 @@ export type TestimonialsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TextSection → Primary*
+ */
+export interface TextSectionSliceDefaultPrimary {
+  /**
+   * Header field in *TextSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_section.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  header: prismic.KeyTextField;
+
+  /**
+   * Content field in *TextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_section.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Text Align field in *TextSection → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Center
+   * - **API ID Path**: text_section.primary.text_align
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  text_align: prismic.SelectField<"Center" | "Left" | "Right", "filled">;
+}
+
+/**
+ * Default variation for TextSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TextSection*
+ */
+type TextSectionSliceVariation = TextSectionSliceDefault;
+
+/**
+ * TextSection Shared Slice
+ *
+ * - **API ID**: `text_section`
+ * - **Description**: TextSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSectionSlice = prismic.SharedSlice<
+  "text_section",
+  TextSectionSliceVariation
+>;
+
+/**
  * Primary content in *ThreeColumnCards → Primary*
  */
 export interface ThreeCardsSliceDefaultPrimary {
@@ -6647,6 +6714,10 @@ declare module "@prismicio/client" {
       TestimonialsSliceDefaultPrimary,
       TestimonialsSliceVariation,
       TestimonialsSliceDefault,
+      TextSectionSlice,
+      TextSectionSliceDefaultPrimary,
+      TextSectionSliceVariation,
+      TextSectionSliceDefault,
       ThreeCardsSlice,
       ThreeCardsSliceDefaultPrimary,
       ThreeCardsSliceVariation,

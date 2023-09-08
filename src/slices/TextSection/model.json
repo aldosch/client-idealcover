@@ -1,0 +1,48 @@
+{
+  "id": "text_section",
+  "type": "SharedSlice",
+  "name": "TextSection",
+  "description": "TextSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "header": {
+          "type": "Text",
+          "config": {
+            "label": "Header",
+            "placeholder": ""
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "text_align": {
+          "type": "Select",
+          "config": {
+            "label": "Text Align",
+            "placeholder": "",
+            "options": [
+              "Center",
+              "Left",
+              "Right"
+            ],
+            "default_value": "Center"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
