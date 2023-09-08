@@ -27,7 +27,7 @@ export default async function RootLayout({
   const menu = await getPrismicData("menu");
   return (
     <html lang="en" className={karla.className}>
-      <body className="container mx-auto max-w-7xl">
+      <body className="max-w-7xl container mx-auto">
         <Header
           menuItems={menu.data.menu_items.map(
             (item: { label: string; link: { url: any } }) => ({
@@ -40,7 +40,7 @@ export default async function RootLayout({
           phoneNumber={menu.data.phone_number}
           ctaLabel={menu.data.cta_label}
         />
-        <main className="">{children}</main>
+        <main>{children}</main>
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
