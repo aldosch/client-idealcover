@@ -5,7 +5,11 @@ type Props = {
 };
 
 function Card({ children }: Props) {
-  return <div className="border rounded-lg p-4">{children}</div>;
+  return (
+    <div className="rounded-xl hover:shadow p-4 duration-200 border">
+      {children}
+    </div>
+  );
 }
 
 export default Card;
