@@ -20,19 +20,36 @@
             "allowTargetBlank": true,
             "single": "heading2,heading3,heading4"
           }
-        }
-      },
-      "items": {
-        "card": {
+        },
+        "card_one": {
           "type": "StructuredText",
           "config": {
-            "label": "Card",
-            "placeholder": "Choose a policy that suits your needs and budget.",
+            "label": "Card One",
+            "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+            "single": "paragraph,hyperlink,strong,em"
+          }
+        },
+        "card_two": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Two",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,hyperlink,strong,em"
+          }
+        },
+        "card_three": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Three",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,hyperlink,strong,em"
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }

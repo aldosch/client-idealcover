@@ -15,22 +15,24 @@ const ThreeCards = ({ slice }: ThreeCardsProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex flex-col gap-3 p-4"
+      className="p-4"
     >
-      <FadeIn>
-        <span className="mx-4 mb-4 text-3xl font-bold text-center">
-          <PrismicRichText field={slice.primary.heading} />
-        </span>
-      </FadeIn>
       <FadeInStagger>
-        <div className="md:grid md:grid-cols-3 sm:flex sm:flex-col gap-4 text-lg">
-          {slice.items.map((item, index) => (
-            <FadeIn key={index}>
-              <div className="rounded-xl px-12 py-8 prose text-gray-600 border">
-                <PrismicRichText field={item.card} />
-              </div>
-            </FadeIn>
-          ))}
+        <div className="my-16 text-4xl font-semibold text-center">
+          <FadeIn>
+            <PrismicRichText field={slice.primary.heading} />
+          </FadeIn>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-gray-700 my-16 [&>div]:p-8">
+          <Card>
+            <PrismicRichText field={slice.primary.card_one} />
+          </Card>
+          <Card>
+            <PrismicRichText field={slice.primary.card_two} />
+          </Card>
+          <Card>
+            <PrismicRichText field={slice.primary.card_three} />
+          </Card>
         </div>
       </FadeInStagger>
     </section>

@@ -13,27 +13,45 @@
 						}
 					}
 				]
+			},
+			"card_one": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing sit dolor aute in dolore cupidatat tempor et labore."
+						}
+					}
+				]
+			},
+			"card_two": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit eu pariatur ea sint culpa commodo anim do nisi nisi excepteur. Occaecat laboris incididunt enim in commodo ex nulla ipsum. Amet non exercitation laborum irure dolore eiusmod in excepteur nisi culpa veniam officia nulla anim."
+						}
+					}
+				]
+			},
+			"card_three": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam irure duis in culpa tempor magna do id ea est voluptate proident ex sit. Adipisicing fugiat adipisicing reprehenderit pariatur qui amet eiusmod exercitation sit aliqua ullamco consequat amet anim consequat."
+						}
+					}
+				]
 			}
 		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"card",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Exercitation reprehenderit ad sint esse sunt veniam occaecat qui amet ad cillum minim ad ea. Duis magna in nulla ex occaecat ad occaecat nulla esse duis irure sunt. Sunt id reprehenderit tempor aliquip enim nisi sit incididunt velit non qui quis anim mollit cupidatat."
-									}
-								}
-							]
-						}
-					]
-				]
+				"value": []
 			}
 		]
 	}
