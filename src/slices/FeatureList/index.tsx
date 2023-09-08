@@ -16,7 +16,7 @@ const FeatureList = ({ slice }: FeatureListProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="container my-16"
+      className="container my-8"
     >
       {slice.variation === "default" && (
         <div className="flex flex-col gap-8 px-4">
