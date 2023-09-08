@@ -29,12 +29,12 @@ function Hero({ title, subTitle, callToAction, image }: Props) {
           </p>
         </div>
         <div className="col-span-3">
-          <ClippedImage field={image} />
+          <ClippedImage field={image} clip="hero" />
         </div>
       </div>
       <div className="p-4 mt-6">
         <ProductSelect />
-        <div className="flex items-center justify-center mx-4 my-8">
+        <div className="flex items-center justify-center my-8">
           <Button size="lg" className="w-full">
             <span className="flex items-center justify-center w-full gap-2">
               <span>{callToAction}</span>
@@ -76,7 +76,7 @@ function Hero({ title, subTitle, callToAction, image }: Props) {
           <LogoCloud />
         </div>
         <div className="col-span-4">
-          <ClippedImage field={image} />
+          <ClippedImage field={image} clip="hero" />
         </div>
       </div>
     </div>
