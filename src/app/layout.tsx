@@ -48,24 +48,26 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={karla.className}>
-      <body className="max-w-7xl container mx-auto">
-        <Header
-          menuItems={menuItems}
-          phoneCTA={menu.data.phone_cta}
-          phoneLabel={menu.data.phone_label}
-          phoneNumber={menu.data.phone_number}
-          ctaLabel={menu.data.cta_label}
-        />
-        <main>{children}</main>
-        <footer>
-          <Footer
+      <body className="min-w-full">
+        <div className="max-w-7xl container mx-auto">
+          <Header
             menuItems={menuItems}
-            footerMenuItems={footerMenuItems}
-            socialItems={socialItems}
-            text={footer.data.text}
-            copyright={footer.data.copyright}
+            phoneCTA={menu.data.phone_cta}
+            phoneLabel={menu.data.phone_label}
+            phoneNumber={menu.data.phone_number}
+            ctaLabel={menu.data.cta_label}
           />
-        </footer>
+          <main>{children}</main>
+          <footer>
+            <Footer
+              menuItems={menuItems}
+              footerMenuItems={footerMenuItems}
+              socialItems={socialItems}
+              text={footer.data.text}
+              copyright={footer.data.copyright}
+            />
+          </footer>
+        </div>
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
