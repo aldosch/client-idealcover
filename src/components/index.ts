@@ -6,7 +6,19 @@ import Hero from "./Hero/Hero";
 import Icon from "./Icon/Icon";
 import LogoCloud from "./LogoCloud/LogoCloud";
 import ProductSelect from "./ProductSelect/ProductSelect";
+import QuoteForm from "./QuoteForm/QuoteForm";
+import { Input } from "./Input/Input";
 import { Label } from "./Label/Label";
+import {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
+} from "./Select/Select";
 import {
   Form,
   FormControl,
@@ -58,11 +70,21 @@ export {
   Header,
   Hero,
   Icon,
+  Input,
   Label,
   LogoCloud,
   ProductSelect,
+  QuoteForm,
   ScrollArea,
   ScrollBar,
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
   Sheet,
   SheetClose,
   SheetContent,
