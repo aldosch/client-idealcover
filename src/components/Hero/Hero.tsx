@@ -10,13 +10,22 @@ import {
 import { ArrowRightIcon } from "lucide-react";
 
 type Props = {
+  home?: boolean;
   title: string;
   subTitle: string;
   callToAction: string;
   image: ImageFieldImage;
+  children?: React.ReactNode;
 };
 
-function Hero({ title, subTitle, callToAction, image }: Props) {
+function Hero({
+  home = false,
+  title,
+  subTitle,
+  callToAction,
+  image,
+  children,
+}: Props) {
   const mobileHero = (
     <div className="md:hidden">
       <div className="grid grid-cols-7">
@@ -24,9 +33,50 @@ function Hero({ title, subTitle, callToAction, image }: Props) {
           <h1 className="line-clamp-4 mb-4 text-4xl font-bold leading-tight text-gray-900">
             {title}
           </h1>
-          <p className="text-base font-normal leading-relaxed text-gray-600">
-            {subTitle}
-          </p>
+        </div>
+        <div className="col-span-3">
+          <ClippedImage field={image} clip="hero" />
+        </div>
+      </div>
+    </div>
+  );
+  const hero = (
+    <div className="md:flex flex-col hidden gap-4">
+      <div className="grid grid-cols-7">
+        <div className="flex flex-col col-span-3 gap-8 pl-4 mt-16">
+          <div className="flex flex-col gap-8 mr-12">
+            <FadeIn>
+              <h1 className="line-clamp-4 text-6xl font-bold leading-tight text-gray-900">
+                {title}
+              </h1>
+            </FadeIn>
+            <div>{children}</div>
+          </div>
+        </div>
+        <div className="col-span-4">
+          <FadeIn>
+            <ClippedImage field={image} clip="hero" />
+          </FadeIn>
+        </div>
+      </div>
+    </div>
+  );
+  const mobileHeroHome = (
+    <div className="md:hidden">
+      <div className="grid grid-cols-7">
+        <div className="pb-7 col-span-4 pt-6 pl-4">
+          <FadeInStagger>
+            <FadeIn>
+              <h1 className="line-clamp-4 mb-4 text-4xl font-bold leading-tight text-gray-900">
+                {title}
+              </h1>
+            </FadeIn>
+            <FadeIn>
+              <p className="text-base font-normal leading-relaxed text-gray-600">
+                {subTitle}
+              </p>
+            </FadeIn>
+          </FadeInStagger>
         </div>
         <div className="col-span-3">
           <ClippedImage field={image} clip="hero" />
@@ -46,7 +96,7 @@ function Hero({ title, subTitle, callToAction, image }: Props) {
       </div>
     </div>
   );
-  const hero = (
+  const heroHome = (
     <div className="md:flex flex-col hidden gap-4">
       <div className="grid grid-cols-7">
         <div className="flex flex-col col-span-3 gap-8 pl-4 mt-16">
@@ -81,12 +131,21 @@ function Hero({ title, subTitle, callToAction, image }: Props) {
       </div>
     </div>
   );
-  return (
-    <>
-      <div className="md:block hidden">{hero}</div>
-      <div className="md:hidden">{mobileHero}</div>
-    </>
-  );
+  if (home) {
+    return (
+      <>
+        <div className="md:block hidden">{heroHome}</div>
+        <div className="md:hidden">{mobileHeroHome}</div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="md:block hidden">{hero}</div>
+        <div className="md:hidden">{mobileHero}</div>
+      </>
+    );
+  }
 }
 
 export default Hero;
