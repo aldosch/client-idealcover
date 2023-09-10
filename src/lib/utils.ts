@@ -2,25 +2,34 @@ import { createClient } from "@prismicio/client";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { repositoryName } from "../prismicio";
+import { PrismicCustomTypes } from "@/types";
 
-export async function getPrismicData(
-  single:
-    | "about"
-    | "footer"
-    | "home"
-    | "logo"
-    | "menu"
-    | "partner_companies"
-    | "pds"
-    | "privacy_policy"
-    | "product"
-    | "quote_form"
-    | "testimonials"
+export async function getPrismicSingle(
+  single: PrismicCustomTypes
 ): Promise<any> {
   const client = createClient(repositoryName, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
   });
   const data = await client.getSingle(single);
+  return data;
+}
+
+export async function getPrismicUID(
+  type: PrismicCustomTypes,
+  uid: string
+): Promise<any> {
+  const client = createClient(repositoryName, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  });
+  const data = await client.getByUID(type, uid);
+  return data;
+}
+
+export async function getPrismicType(type: PrismicCustomTypes): Promise<any> {
+  const client = createClient(repositoryName, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  });
+  const data = await client.getAllByType(type);
   return data;
 }
 

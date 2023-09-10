@@ -1,7 +1,7 @@
 import "./globals.css";
 import { repositoryName } from "../prismicio";
 import { PrismicPreview } from "@prismicio/next";
-import { getPrismicData } from "@utils";
+import { getPrismicSingle } from "@utils";
 import { Footer, Header } from "@ui";
 import { Karla } from "next/font/google";
 import { Metadata } from "next";
@@ -25,8 +25,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const menu = await getPrismicData("menu");
-  const footer = await getPrismicData("footer");
+  const menu = await getPrismicSingle("menu");
+  const footer = await getPrismicSingle("footer");
   const menuItems: menuItem[] = menu.data.menu_items.map(
     (item: { label: string; link: { url: string } }) => ({
       label: item.label,

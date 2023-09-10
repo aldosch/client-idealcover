@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import { getPrismicData } from "@utils";
+import { getPrismicSingle } from "@utils";
 import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 import { Hero } from "@ui";
 
-const page = await getPrismicData("home");
+const page = await getPrismicSingle("home");
 
 export const metadata: Metadata = {
   title: page.data.meta_title,

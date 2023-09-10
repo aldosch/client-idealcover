@@ -1,7 +1,7 @@
 import { Icon, ScrollArea, ScrollBar } from "@ui";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { getPrismicData } from "@/src/lib/utils";
+import { getPrismicSingle } from "@/src/lib/utils";
 import { PrismicNextLink } from "@prismicio/next";
 
 /**
@@ -31,7 +31,7 @@ const Stars = ({ stars }: { stars: "1" | "2" | "3" | "4" | "5" }) => {
 const Testimonials = async ({
   slice,
 }: TestimonialsProps): Promise<JSX.Element> => {
-  const testimonials = await getPrismicData("testimonials");
+  const testimonials = await getPrismicSingle("testimonials");
   return (
     <section
       data-slice-type={slice.slice_type}
