@@ -9,6 +9,7 @@ import ProductSelect from "./ProductSelect/ProductSelect";
 import QuoteForm from "./QuoteForm/QuoteForm";
 import { Input } from "./Input/Input";
 import { Label } from "./Label/Label";
+import { RadioGroup, RadioGroupItem } from "./RadioGroup/RadioGroup";
 import {
   Select,
   SelectGroup,
@@ -94,4 +95,6 @@ export {
   SheetTitle,
   SheetTrigger,
   useFormField,
+  RadioGroup,
+  RadioGroupItem,
 };
