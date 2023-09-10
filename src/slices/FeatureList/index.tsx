@@ -26,7 +26,7 @@ const FeatureList = ({ slice }: FeatureListProps): JSX.Element => {
           <div className="flex flex-col gap-8">
             {slice.items.map((item, index) => (
               <div className="flex gap-4" key={index}>
-                <div className="bg-brand-shape p-4 bg-no-repeat bg-cover">
+                <div className="bg-brand-shape h-fit p-4 bg-no-repeat bg-cover">
                   {/* item.icon is safe but I can't figure out how to fix the ts error quickly */}
                   {/* @ts-ignore */}
                   <Icon name={item.icon} className="w-6 h-6" />
