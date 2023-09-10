@@ -38,7 +38,7 @@ const Testimonials = async ({
       data-slice-variation={slice.variation}
       className="p-4"
     >
-      <div className="text-4xl font-medium text-center">
+      <div className="text-4xl font-semibold text-center">
         <span>{slice.primary.title}</span>
       </div>
       <ScrollArea className="py-8 my-8">

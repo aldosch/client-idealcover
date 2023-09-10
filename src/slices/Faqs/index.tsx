@@ -21,7 +21,7 @@ const Faqs = ({ slice }: FaqsProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="p-4 my-16"
     >
-      <div className="mb-8 text-4xl font-medium text-center">
+      <div className="mb-8 text-4xl font-semibold text-center">
         <span>{slice.primary.title}</span>
       </div>
       <div className="max-w-6xl">

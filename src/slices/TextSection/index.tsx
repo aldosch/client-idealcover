@@ -32,7 +32,7 @@ const TextSection = ({ slice }: TextSectionProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className={cn("p-4 max-w-3xl mx-auto flex flex-col gap-8 my-16", align)}
     >
-      <div className="text-4xl font-medium">
+      <div className="text-4xl font-semibold">
         <span>{slice.primary.header}</span>
       </div>
       <div className="text-lg">
