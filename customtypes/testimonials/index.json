@@ -42,6 +42,15 @@
                 "options": ["5", "4", "3", "2", "1"],
                 "default_value": "5"
               }
+            },
+            "url": {
+              "type": "Link",
+              "config": {
+                "label": "URL",
+                "placeholder": "",
+                "allowTargetBlank": false,
+                "select": null
+              }
             }
           }
         }

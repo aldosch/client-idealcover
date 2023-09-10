@@ -94,7 +94,7 @@ interface AboutDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice>
+  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice>;
   /**
    * Meta Description field in *About*
    *
@@ -103,7 +103,7 @@ interface AboutDocumentData {
    * - **API ID Path**: about.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -325,7 +325,7 @@ interface HomeDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>;
   /**
    * Meta Description field in *Home*
    *
@@ -334,7 +334,7 @@ interface HomeDocumentData {
    * - **API ID Path**: home.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -598,7 +598,7 @@ interface PdsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PdsDocumentDataSlicesSlice>
+  slices: prismic.SliceZone<PdsDocumentDataSlicesSlice>;
   /**
    * Meta Description field in *PDS*
    *
@@ -607,7 +607,7 @@ interface PdsDocumentData {
    * - **API ID Path**: pds.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -682,7 +682,7 @@ interface PrivacyPolicyDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PrivacyPolicyDocumentDataSlicesSlice>
+  slices: prismic.SliceZone<PrivacyPolicyDocumentDataSlicesSlice>;
   /**
    * Meta Description field in *Privacy Policy*
    *
@@ -691,7 +691,7 @@ interface PrivacyPolicyDocumentData {
    * - **API ID Path**: privacy_policy.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -2082,7 +2082,7 @@ interface ProductDocumentData {
    * Hook Sub Title field in *Product*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Don't leave your financial future up to chance.  Act now to secure your income.
+   * - **Placeholder**: Don't leave your financial future up to chance. Act now to secure your income.
    * - **API ID Path**: product.hook_sub_title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -2098,7 +2098,7 @@ interface ProductDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice>;
   /**
    * Meta Description field in *Product*
    *
@@ -2107,7 +2107,7 @@ interface ProductDocumentData {
    * - **API ID Path**: product.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -2195,7 +2195,7 @@ interface QuoteFormDocumentData {
    * - **Tab**: Thank You
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  thank_you_button_link: prismic.LinkField
+  thank_you_button_link: prismic.LinkField;
   /**
    * Sidebar: Content field in *Quote Form*
    *
@@ -2204,7 +2204,7 @@ interface QuoteFormDocumentData {
    * - **API ID Path**: quote_form.sidebar_content
    * - **Tab**: Sidebar
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */;
+   */
   sidebar_content: prismic.RichTextField;
 }
 
@@ -2268,6 +2268,16 @@ export interface TestimonialsDocumentDataTestimonialsItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   stars: prismic.SelectField<"5" | "4" | "3" | "2" | "1", "filled">;
+
+  /**
+   * URL field in *Testimonials → Testimonials*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.testimonials[].url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField;
 }
 
 /**
@@ -2335,7 +2345,7 @@ export interface CallToActionSliceDefaultPrimary {
    * Sub Title field in *CallToAction → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Secure your future with our easy-to-use and free quote service.  Why pay more than you need to?
+   * - **Placeholder**: Secure your future with our easy-to-use and free quote service. Why pay more than you need to?
    * - **API ID Path**: call_to_action.primary.sub_title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
