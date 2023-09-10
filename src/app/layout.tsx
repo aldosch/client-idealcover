@@ -2,9 +2,10 @@ import "./globals.css";
 import { repositoryName } from "../prismicio";
 import { PrismicPreview } from "@prismicio/next";
 import { getPrismicData } from "@utils";
-import { Header } from "@ui";
+import { Footer, Header } from "@ui";
 import { Karla } from "next/font/google";
 import { Metadata } from "next";
+import { menuItem, socialItem } from "@/types";
 
 export const metadata: Metadata = {
   // default values
@@ -25,22 +26,46 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const menu = await getPrismicData("menu");
+  const footer = await getPrismicData("footer");
+  const menuItems: menuItem[] = menu.data.menu_items.map(
+    (item: { label: string; link: { url: string } }) => ({
+      label: item.label,
+      url: item.link.url,
+    })
+  );
+  const footerMenuItems: menuItem[] = footer.data.additional_links.map(
+    (item: { label: string; link: { url: string } }) => ({
+      label: item.label,
+      url: item.link.url,
+    })
+  );
+  const socialItems: socialItem[] = footer.data.socials.map(
+    (item: { platform: string; link: any }) => ({
+      platform: item.platform,
+      link: item.link,
+    })
+  );
+
   return (
     <html lang="en" className={karla.className}>
       <body className="max-w-7xl container mx-auto">
         <Header
-          menuItems={menu.data.menu_items.map(
-            (item: { label: string; link: { url: any } }) => ({
-              label: item.label,
-              url: item.link.url,
-            })
-          )}
+          menuItems={menuItems}
           phoneCTA={menu.data.phone_cta}
           phoneLabel={menu.data.phone_label}
           phoneNumber={menu.data.phone_number}
           ctaLabel={menu.data.cta_label}
         />
         <main>{children}</main>
+        <footer>
+          <Footer
+            menuItems={menuItems}
+            footerMenuItems={footerMenuItems}
+            socialItems={socialItems}
+            text={footer.data.text}
+            copyright={footer.data.copyright}
+          />
+        </footer>
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
