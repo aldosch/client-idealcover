@@ -23,7 +23,7 @@ const ThreeCards = ({ slice }: ThreeCardsProps): JSX.Element => {
             <PrismicRichText field={slice.primary.heading} />
           </FadeIn>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-gray-700 my-16 [&>div]:p-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-lg text-gray-700 my-16 [&>div]:p-8">
           <Card>
             <PrismicRichText field={slice.primary.card_one} />
           </Card>
