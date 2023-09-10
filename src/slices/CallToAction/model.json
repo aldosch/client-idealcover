@@ -20,10 +20,12 @@
           }
         },
         "sub_title": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Sub Title",
-            "placeholder": "Secure your future with our easy-to-use and free quote service.  Why pay more than you need to?"
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
           }
         },
         "button_text": {

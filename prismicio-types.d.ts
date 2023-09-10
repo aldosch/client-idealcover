@@ -2344,12 +2344,12 @@ export interface CallToActionSliceDefaultPrimary {
   /**
    * Sub Title field in *CallToAction → Primary*
    *
-   * - **Field Type**: Text
-   * - **Placeholder**: Secure your future with our easy-to-use and free quote service. Why pay more than you need to?
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
    * - **API ID Path**: call_to_action.primary.sub_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  sub_title: prismic.KeyTextField;
+  sub_title: prismic.RichTextField;
 
   /**
    * Button Text field in *CallToAction → Primary*

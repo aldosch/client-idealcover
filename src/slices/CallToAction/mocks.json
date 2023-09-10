@@ -9,9 +9,15 @@
 				"type": "Text"
 			},
 			"sub_title": {
-				"__TYPE__": "FieldContent",
-				"value": "roof",
-				"type": "Text"
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit Lorem velit deserunt Lorem minim consectetur consectetur Lorem magna laborum ipsum."
+						}
+					}
+				]
 			},
 			"button_text": {
 				"__TYPE__": "FieldContent",
