@@ -17,7 +17,9 @@ export async function getPrismicData(
     | "quote_form"
     | "testimonials"
 ): Promise<any> {
-  const client = createClient(repositoryName);
+  const client = createClient(repositoryName, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+  });
   const data = await client.getSingle(single);
   return data;
 }
