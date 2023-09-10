@@ -30,9 +30,12 @@ function Hero({
     <div className="md:hidden">
       <div className="grid grid-cols-7">
         <div className="pb-7 col-span-4 pt-6 pl-4">
-          <h1 className="line-clamp-4 mb-4 text-4xl font-bold leading-tight text-gray-900">
-            {title}
-          </h1>
+          <FadeIn>
+            <h1 className="line-clamp-4 mb-4 text-4xl font-bold leading-tight text-gray-900">
+              {title}
+            </h1>
+          </FadeIn>
+          <div>{children}</div>
         </div>
         <div className="col-span-3">
           <ClippedImage field={image} clip="hero" />
