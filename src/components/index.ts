@@ -1,5 +1,6 @@
 import Card from "./Card/Card";
 import ClippedImage from "./ClippedImage/ClippedImage";
+import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import Hero from "./Hero/Hero";
 import Icon from "./Icon/Icon";
@@ -35,11 +36,14 @@ export {
   ClippedImage,
   FadeIn,
   FadeInStagger,
+  Footer,
   Header,
   Hero,
   Icon,
   LogoCloud,
   ProductSelect,
+  ScrollArea,
+  ScrollBar,
   Sheet,
   SheetClose,
   SheetContent,
@@ -48,6 +52,4 @@ export {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  ScrollArea,
-  ScrollBar,
 };
