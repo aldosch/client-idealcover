@@ -1,7 +1,8 @@
-import { Icon, Testimonials as Reviews, ScrollArea, ScrollBar } from "@ui";
+import { Icon, ScrollArea, ScrollBar } from "@ui";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { getPrismicData } from "@/src/lib/utils";
+import { PrismicNextLink } from "@prismicio/next";
 
 /**
  * Props for `Testimonials`.
@@ -15,9 +16,13 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
 const Stars = ({ stars }: { stars: "1" | "2" | "3" | "4" | "5" }) => {
   const starsArray = Array.from({ length: Number(stars) });
   return (
-    <div className="flex items-center justify-end w-full gap-2 mb-4">
+    <div className="flex items-center w-full gap-2">
       {starsArray.map((_, i) => (
-        <Icon key={i} name="star" className="fill-black w-4 h-4" />
+        <Icon
+          key={i}
+          name="star"
+          className="fill-primary-300 text-primary-300 w-4 h-4"
+        />
       ))}
     </div>
   );
@@ -37,23 +42,27 @@ const Testimonials = async ({
         <span>{slice.primary.title}</span>
       </div>
       <ScrollArea className="py-8 my-8">
-        <div className="flex-nowrap flex gap-8">
+        <div className="flex-nowrap flex gap-4 px-8">
           {testimonials &&
             testimonials.data.testimonials.map((item: any) => (
-              <div
+              <PrismicNextLink
                 key={item.name}
-                className="rounded-xl hover:shadow w-96 flex flex-col justify-between p-8 duration-200 border"
+                className="rounded-xl hover:shadow-lg w-96 hover hover:text-black flex flex-col justify-between p-8 my-8 text-gray-500 duration-200 border"
+                field={item.url}
+                target="_blank"
               >
                 <div>
-                  <Stars stars={item.stars} />
-                  <div className="line-clamp-6">
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <Stars stars={item.stars} />
+                  </div>
+                  <div className="line-clamp-6 ">
                     <PrismicRichText field={item.review} />
                   </div>
                 </div>
-                <div className="pt-4">
+                <div className="flex items-center justify-end pt-4">
                   <span className="font-semibold">{item.name}</span>
                 </div>
-              </div>
+              </PrismicNextLink>
             ))}
         </div>
         <ScrollBar orientation="horizontal" />

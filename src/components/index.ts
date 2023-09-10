@@ -5,7 +5,6 @@ import Hero from "./Hero/Hero";
 import Icon from "./Icon/Icon";
 import LogoCloud from "./LogoCloud/LogoCloud";
 import ProductSelect from "./ProductSelect/ProductSelect";
-import Testimonials from "./Testimonials/Testimonials";
 import { Button } from "./Button/Button";
 import { FadeIn, FadeInStagger } from "./FadeIn/FadeIn";
 import { ScrollArea, ScrollBar } from "./ScrollArea/ScrollArea";
@@ -49,7 +48,6 @@ export {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  Testimonials,
   ScrollArea,
   ScrollBar,
 };
