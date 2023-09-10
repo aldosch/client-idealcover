@@ -18,6 +18,7 @@ export default async function Page() {
   return (
     <>
       <Hero
+        home
         title={page.data.title}
         subTitle={page.data.subtitle}
         callToAction={page.data.call_to_action}
