@@ -53,8 +53,8 @@ export default async function RootLayout({
           <Header
             menuItems={menuItems}
             phoneCTA={menu.data.phone_cta}
-            phoneLabel={menu.data.phone_label}
-            phoneNumber={menu.data.phone_number}
+            phoneLabel={"(02) 7801 6639"}
+            phoneNumber={"0278016639"}
             ctaLabel={menu.data.cta_label}
           />
           <main>{children}</main>
