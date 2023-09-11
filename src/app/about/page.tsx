@@ -1,12 +1,9 @@
-import { Hero, Icon, QuoteForm } from "@ui";
-import {
-  getPrismicUID,
-  getPrismicType,
-  getPrismicSingle,
-} from "@/src/lib/utils";
+import { Hero, QuoteForm } from "@ui";
+import { getPrismicSingle } from "@utils";
 
-export default async function Page({ params }: { params: { uid: string } }) {
-  const page = await getPrismicSingle("about");
+const page = await getPrismicSingle("about");
+
+export default async function Page() {
   return (
     <>
       <Hero
@@ -28,11 +25,4 @@ export default async function Page({ params }: { params: { uid: string } }) {
       </section>
     </>
   );
-}
-
-export async function generateStaticParams() {
-  const pages = await getPrismicType("product");
-  return pages.map((page: { uid: any }) => {
-    return { uid: page.uid };
-  });
 }
