@@ -21,8 +21,13 @@ export async function getPrismicUID(
   const client = createClient(repositoryName, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
   });
-  const data = await client.getByUID(type, uid);
-  return data;
+  try {
+    const data = await client.getByUID(type, uid);
+    return data;
+  } catch (error) {
+    console.error("Error fetching data from Prismic:", error);
+    throw error;
+  }
 }
 
 export async function getPrismicType(type: PrismicCustomTypes): Promise<any> {
