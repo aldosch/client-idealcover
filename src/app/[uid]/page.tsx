@@ -10,7 +10,7 @@ export default async function Page({ params }: { params: { uid: string } }) {
   return (
     <>
       <Hero
-        title={page.data.name}
+        title={"title"}
         subTitle={"none"}
         callToAction={"none"}
         image={page.data.image}
