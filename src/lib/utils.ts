@@ -20,6 +20,7 @@ export async function getPrismicUID(
 ): Promise<any> {
   const client = createClient(repositoryName, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+    ref: "master",
   });
   try {
     const data = await client.getByUID(type, uid);
