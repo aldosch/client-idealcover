@@ -3,20 +3,17 @@ import { getPrismicUID, getPrismicType } from "@/src/lib/utils";
 import { createClient } from "@/src/prismicio";
 
 export default async function Page({ params }: { params: { uid: string } }) {
-  const client = createClient({
-    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-  });
-  const page = await client.getByUID("product", params.uid);
+  const page = await getPrismicUID("product", params.uid);
   return (
     <>
       <Hero
-        title={"title"}
+        title={page.data.name}
         subTitle={"none"}
         callToAction={"none"}
         image={page.data.image}
       >
         <div className="flex flex-col gap-8 my-8">
-          {page.data.features.map((item, index) => (
+          {page.data.features.map((item: any, index: number) => (
             <div className="flex gap-4" key={index}>
               <div className="bg-brand-shape h-min p-4 bg-no-repeat bg-cover">
                 {/* item.icon is safe but I can't figure out how to fix the ts error quickly */}
