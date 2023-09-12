@@ -1,5 +1,6 @@
 import { Hero, Icon, QuoteForm } from "@ui";
 import { getPrismicUID, getPrismicType } from "@/src/lib/utils";
+import Script from "next/script";
 
 export default async function Page({ params }: { params: { uid: string } }) {
   const page = await getPrismicUID("product", params.uid);
@@ -37,7 +38,17 @@ export default async function Page({ params }: { params: { uid: string } }) {
       </section>
       <section>
         <div className="max-w-lg mx-auto mb-16">
-          <QuoteForm />
+          {/* <QuoteForm /> */}
+          <iframe
+            data-tally-src="https://tally.so/embed/wA2NZ0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="815"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            title="Get a quote"
+          ></iframe>
         </div>
       </section>
     </>
