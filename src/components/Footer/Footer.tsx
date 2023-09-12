@@ -94,7 +94,7 @@ function Footer({
   const FooterLinks = (
     <div className="md:gap-8 flex flex-col gap-4">
       <ul className="md:flex-row md:px-0 flex flex-col gap-4 px-3">
-        {menuItems?.map((item) => (
+        {/* {menuItems?.map((item) => (
           <li key={item.label}>
             <PrismicNextLink field={item.link}>
               <span className="hover:bg-primary-100 px-3 py-2 text-sm font-medium duration-200 rounded-full">
@@ -102,10 +102,45 @@ function Footer({
               </span>
             </PrismicNextLink>
           </li>
-        ))}
+        ))} */}
+        <li>
+          <Link href={"/income-protection"}>
+            <span className="hover:bg-primary-100 px-3 py-2 text-sm font-medium duration-200 rounded-full">
+              Income protection
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link href={"/life-insurance"}>
+            <span className="hover:bg-primary-100 px-3 py-2 text-sm font-medium duration-200 rounded-full">
+              Life insurance
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link href={"/tpd-cover"}>
+            <span className="hover:bg-primary-100 px-3 py-2 text-sm font-medium duration-200 rounded-full">
+              TPD Cover
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link href={"/trauma-cover"}>
+            <span className="hover:bg-primary-100 px-3 py-2 text-sm font-medium duration-200 rounded-full">
+              Trauma cover
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link href={"/about"}>
+            <span className="hover:bg-primary-100 px-3 py-2 text-sm font-medium duration-200 rounded-full">
+              About us
+            </span>
+          </Link>
+        </li>
       </ul>
       <ul className="md:flex-row md:px-0 flex flex-col gap-4 px-3">
-        {footerMenuItems?.map((item) => (
+        {/* {footerMenuItems?.map((item) => (
           <li key={item.label}>
             <PrismicNextLink field={item.link}>
               <span className="hover:bg-primary-100 px-3 py-2 text-sm font-medium duration-200 rounded-full">
@@ -113,7 +148,21 @@ function Footer({
               </span>
             </PrismicNextLink>
           </li>
-        ))}
+        ))} */}
+        <li>
+          <Link href={"/pds"}>
+            <span className="hover:bg-primary-100 px-3 py-2 text-sm font-medium duration-200 rounded-full">
+              PDS
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link href={"/privacy"}>
+            <span className="hover:bg-primary-100 px-3 py-2 text-sm font-medium duration-200 rounded-full">
+              Privacy policy
+            </span>
+          </Link>
+        </li>
       </ul>
     </div>
   );

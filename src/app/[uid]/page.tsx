@@ -1,6 +1,5 @@
 import { Hero, Icon, QuoteForm } from "@ui";
 import { getPrismicUID, getPrismicType } from "@/src/lib/utils";
-import { createClient } from "@/src/prismicio";
 
 export default async function Page({ params }: { params: { uid: string } }) {
   const page = await getPrismicUID("product", params.uid);
