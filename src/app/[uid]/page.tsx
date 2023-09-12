@@ -36,7 +36,9 @@ export default async function Page({ params }: { params: { uid: string } }) {
         </div>
       </section>
       <section>
-        <QuoteForm />
+        <div className="max-w-lg mx-auto mb-16">
+          <QuoteForm />
+        </div>
       </section>
     </>
   );

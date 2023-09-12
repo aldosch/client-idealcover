@@ -125,7 +125,7 @@ function QuoteForm({}: Props) {
             control={form.control}
             name="firstName"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel className="sr-only">First name</FormLabel>
                 <FormControl>
                   <Input placeholder="First name" {...field} />
@@ -138,7 +138,7 @@ function QuoteForm({}: Props) {
             control={form.control}
             name="lastName"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel className="sr-only">Last name</FormLabel>
                 <FormControl>
                   <Input placeholder="Last name" {...field} />
@@ -153,7 +153,7 @@ function QuoteForm({}: Props) {
             control={form.control}
             name="phone"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel className="sr-only">Phone number</FormLabel>
                 <FormControl>
                   <Input placeholder="Phone number" {...field} />
@@ -166,7 +166,7 @@ function QuoteForm({}: Props) {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel className="sr-only">Email address</FormLabel>
                 <FormControl>
                   <Input placeholder="Email address" {...field} />
@@ -181,11 +181,11 @@ function QuoteForm({}: Props) {
             control={form.control}
             name="state"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel className="sr-only">State or Territory</FormLabel>
                 <FormControl>
                   <Select {...field}>
-                    <SelectTrigger className="w-44">
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="State" />
                     </SelectTrigger>
                     <SelectContent>
@@ -204,11 +204,14 @@ function QuoteForm({}: Props) {
               </FormItem>
             )}
           />
+          <div className="md:block hidden w-full"></div>
+        </div>
+        <div>
           <FormField
             control={form.control}
             name="smoker"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full ml-1">
                 <FormLabel>Are you a smoker?</FormLabel>
                 <FormControl>
                   <RadioGroup defaultValue="No" className="flex gap-8">
@@ -232,7 +235,7 @@ function QuoteForm({}: Props) {
             control={form.control}
             name="occupation"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel className="sr-only">Occupation</FormLabel>
                 <FormControl>
                   <Input placeholder="Occupation" {...field} />
@@ -245,11 +248,11 @@ function QuoteForm({}: Props) {
             control={form.control}
             name="income"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="w-full">
                 <FormLabel className="sr-only">Annual income</FormLabel>
                 <FormControl>
                   <Select {...field}>
-                    <SelectTrigger className="w-44">
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Annual income" />
                     </SelectTrigger>
                     <SelectContent>
@@ -271,7 +274,7 @@ function QuoteForm({}: Props) {
           control={form.control}
           name="coverAmount"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="w-full">
               <FormLabel className="sr-only">Cover amount</FormLabel>
               <FormControl>
                 <Select {...field}>
@@ -292,7 +295,11 @@ function QuoteForm({}: Props) {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <div className="flex items-center justify-center">
+          <Button type="submit" size="lg" className="px-12">
+            Submit
+          </Button>
+        </div>
       </form>
     </Form>
   );
