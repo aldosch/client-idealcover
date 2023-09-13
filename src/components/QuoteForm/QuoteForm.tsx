@@ -57,7 +57,7 @@ const formSchema = z.object({
     .string()
     .min(4, "Please enter your email address")
     .email("That doesn't look quite right. Please enter a valid email address"),
-  state: z.enum(["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"]),
+  state: z.string(),
   age: z
     .number()
     .min(18, "Please enter an age above 18 years old")
@@ -70,23 +70,8 @@ const formSchema = z.object({
       256,
       "Sorry this is a bit too long. Please enter something shorter and we can correct it later"
     ),
-  income: z.enum([
-    "Under $100k",
-    "$100k+",
-    "$250k+",
-    "$500k+",
-    "$750k+",
-    "$1M+",
-  ]),
-  coverAmount: z.enum([
-    "$100k+",
-    "$250k+",
-    "$500k+",
-    "$750k+",
-    "$1M+",
-    "$2M+",
-    "$3M+",
-  ]),
+  income: z.string(),
+  coverAmount: z.string(),
 });
 
 type Props = {};
@@ -98,24 +83,20 @@ function QuoteForm({}: Props) {
     // copied from shadcn example
     // @ts-ignore
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      state: undefined,
-      smoker: "No",
-      occupation: "",
-      income: undefined,
-      coverAmount: undefined,
-    },
+    // defaultValues: {
+    //   firstName: "",
+    //   lastName: "",
+    //   phone: "",
+    //   email: "",
+    //   smoker: "No",
+    //   occupation: "",
+    // },
   });
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log(values);
+    alert("submit");
   }
   return (
     <Form {...form}>
@@ -126,9 +107,9 @@ function QuoteForm({}: Props) {
             name="firstName"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">First name</FormLabel>
+                <FormLabel>First name</FormLabel>
                 <FormControl>
-                  <Input placeholder="First name" {...field} />
+                  <Input placeholder="" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -139,9 +120,9 @@ function QuoteForm({}: Props) {
             name="lastName"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">Last name</FormLabel>
+                <FormLabel>Last name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Last name" {...field} />
+                  <Input placeholder="" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -154,9 +135,9 @@ function QuoteForm({}: Props) {
             name="phone"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">Phone number</FormLabel>
+                <FormLabel>Phone number</FormLabel>
                 <FormControl>
-                  <Input placeholder="Phone number" {...field} />
+                  <Input placeholder="0400000000" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -167,9 +148,9 @@ function QuoteForm({}: Props) {
             name="email"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">Email address</FormLabel>
+                <FormLabel>Email address</FormLabel>
                 <FormControl>
-                  <Input placeholder="Email address" {...field} />
+                  <Input placeholder="" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -182,9 +163,13 @@ function QuoteForm({}: Props) {
             name="state"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">State or Territory</FormLabel>
+                <FormLabel>State or Territory</FormLabel>
                 <FormControl>
-                  <Select {...field}>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    {...field}
+                  >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="State" />
                     </SelectTrigger>
@@ -214,15 +199,23 @@ function QuoteForm({}: Props) {
               <FormItem className="w-full ml-1">
                 <FormLabel>Are you a smoker?</FormLabel>
                 <FormControl>
-                  <RadioGroup defaultValue="No" className="flex gap-8">
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="No" id="smoker-no" />
-                      <Label htmlFor="smoker-no">No</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="Yes" id="smoker-yes" />
+                  <RadioGroup
+                    onValueChange={field.onChange}
+                    defaultValue="No"
+                    className="flex gap-8"
+                  >
+                    <FormItem className="flex items-center space-x-2">
+                      <FormControl>
+                        <RadioGroupItem value="No" id="smoker-no" />
+                      </FormControl>
+                      <FormLabel htmlFor="smoker-no">No</FormLabel>
+                    </FormItem>
+                    <FormItem className="flex items-center space-x-2">
+                      <FormControl>
+                        <RadioGroupItem value="Yes" id="smoker-yes" />
+                      </FormControl>
                       <Label htmlFor="smoker-yes">Yes</Label>
-                    </div>
+                    </FormItem>
                   </RadioGroup>
                 </FormControl>
                 <FormMessage />
@@ -236,9 +229,9 @@ function QuoteForm({}: Props) {
             name="occupation"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">Occupation</FormLabel>
+                <FormLabel>Occupation</FormLabel>
                 <FormControl>
-                  <Input placeholder="Occupation" {...field} />
+                  <Input placeholder="" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -249,9 +242,13 @@ function QuoteForm({}: Props) {
             name="income"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">Annual income</FormLabel>
+                <FormLabel>Annual income</FormLabel>
                 <FormControl>
-                  <Select {...field}>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    {...field}
+                  >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Annual income" />
                     </SelectTrigger>
@@ -270,36 +267,42 @@ function QuoteForm({}: Props) {
             )}
           />
         </div>
-        <FormField
-          control={form.control}
-          name="coverAmount"
-          render={({ field }) => (
-            <FormItem className="w-full">
-              <FormLabel className="sr-only">Cover amount</FormLabel>
-              <FormControl>
-                <Select {...field}>
-                  <SelectTrigger className="w-44">
-                    <SelectValue placeholder="Cover amount" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Under $100k">Under $100k</SelectItem>
-                    <SelectItem value="$100k+">$100k+</SelectItem>
-                    <SelectItem value="$250k+">$250k+</SelectItem>
-                    <SelectItem value="$500k+">$500k+</SelectItem>
-                    <SelectItem value="$750k+">$750k+</SelectItem>
-                    <SelectItem value="$1M+">$1M+</SelectItem>
-                  </SelectContent>
-                </Select>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="flex items-center justify-center">
-          <Button type="submit" size="lg" className="px-12">
-            Submit
-          </Button>
+        <div className="md:flex-row flex flex-col gap-4">
+          <FormField
+            control={form.control}
+            name="coverAmount"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel>Cover amount</FormLabel>
+                <FormControl>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    {...field}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Cover amount" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Under $100k">Under $100k</SelectItem>
+                      <SelectItem value="$100k+">$100k+</SelectItem>
+                      <SelectItem value="$250k+">$250k+</SelectItem>
+                      <SelectItem value="$500k+">$500k+</SelectItem>
+                      <SelectItem value="$750k+">$750k+</SelectItem>
+                      <SelectItem value="$1M+">$1M+</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <div className="md:block hidden w-full"></div>
         </div>
+
+        <Button type="submit" size="lg" className="px-12">
+          Submit
+        </Button>
       </form>
     </Form>
   );

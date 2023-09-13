@@ -1,3 +1,6 @@
+// prettier-ignore
+"use client"
+
 import { ImageFieldImage } from "@prismicio/client";
 import {
   ClippedImage,
@@ -6,8 +9,10 @@ import {
   LogoCloud,
   FadeIn,
   FadeInStagger,
+  QuoteSheet,
 } from "@ui";
 import { ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
 
 type Props = {
   home?: boolean;
@@ -86,14 +91,16 @@ function Hero({
         </div>
       </div>
       <div className="p-4 mt-6">
-        <ProductSelect />
+        {/* <ProductSelect /> */}
         <div className="flex items-center justify-center my-8">
-          <Button size="lg" className="w-full">
-            <span className="flex items-center justify-center w-full gap-2">
-              <span>{callToAction}</span>
-              <ArrowRightIcon className="w-5 h-5" />
-            </span>
-          </Button>
+          <Link href={"/quote"}>
+            <Button size="lg" className="w-full">
+              <span className="flex items-center justify-center w-full gap-2">
+                <span>{callToAction}</span>
+                <ArrowRightIcon className="w-5 h-5" />
+              </span>
+            </Button>
+          </Link>
         </div>
         <LogoCloud />
       </div>
@@ -117,14 +124,16 @@ function Hero({
               </FadeIn>
             </FadeInStagger>
           </div>
-          <ProductSelect />
+          {/* <ProductSelect /> */}
           <div className="flex items-center">
-            <Button size="lg" className="py-7">
-              <span className="flex items-center justify-center w-full gap-2">
-                <span>{callToAction}</span>
-                <ArrowRightIcon className="w-5 h-5" />
-              </span>
-            </Button>
+            <Link href={"/quote"}>
+              <Button size="lg" className="py-7">
+                <span className="flex items-center justify-center w-full gap-2">
+                  <span>{callToAction}</span>
+                  <ArrowRightIcon className="w-5 h-5" />
+                </span>
+              </Button>
+            </Link>
           </div>
           <LogoCloud />
         </div>

@@ -1,11 +1,11 @@
 # TODO
 
-- [ ] Menu links including footer
+- [x] Menu links including footer
   - If its taking too long, temporarily hardcode
 - [ ] Form
   - [ ] Integrate
   - [ ] Product select component state management
-  - [ ] Styling
+  - [x] Styling
   - [ ] Sheet slide out on cta click
 - [ ] About page
 - [ ] Contact page

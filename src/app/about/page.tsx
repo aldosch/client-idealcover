@@ -1,4 +1,4 @@
-import { Hero, QuoteForm } from "@ui";
+import { Hero } from "@ui";
 import { getPrismicSingle } from "@utils";
 
 const page = await getPrismicSingle("about");
@@ -11,17 +11,31 @@ export default async function Page() {
         subTitle={"none"}
         callToAction={"none"}
         image={page.data.image}
-      ></Hero>
-      <section className="flex flex-col max-w-3xl gap-8 p-4 mx-auto my-8 text-center">
-        <div className="text-4xl font-semibold">
-          <span>{page.data.hook_title}</span>
+      >
+        <div className="flex flex-col gap-8">
+          {page.data.service_cards.map((card: any, index: number) => (
+            <div
+              className="rounded-xl hover:shadow p-8 duration-200 border"
+              key={index}
+            >
+              <>{card.description}</>
+            </div>
+          ))}
         </div>
-        <div className="text-lg">
-          <span>{page.data.hook_sub_title}</span>
+      </Hero>
+      <section className="w-full">
+        <div className="max-w-lg mx-auto mb-16">
+          <iframe
+            data-tally-src="https://tally.so/embed/3y2bWx?hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="543"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            title="Contact us"
+          ></iframe>
         </div>
-      </section>
-      <section>
-        <QuoteForm />
       </section>
     </>
   );
