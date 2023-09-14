@@ -24,6 +24,7 @@ export async function getPrismicUID(
 ): Promise<any> {
   const client = createClient(repositoryName, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+    ref: "master",
     fetchOptions:
       process.env.NODE_ENV === "production"
         ? { next: { tags: ["prismic"] }, cache: "force-cache" }
