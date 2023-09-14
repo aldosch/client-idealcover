@@ -11,6 +11,7 @@ import { Input } from "./Input/Input";
 import { Label } from "./Label/Label";
 import { RadioGroup, RadioGroupItem } from "./RadioGroup/RadioGroup";
 import QuoteSheet from "./QuoteSheet/QuoteSheet";
+import TallyForm from "./TallyForm/TallyForm";
 import {
   Select,
   SelectGroup,
@@ -99,4 +100,5 @@ export {
   RadioGroup,
   RadioGroupItem,
   QuoteSheet,
+  TallyForm,
 };

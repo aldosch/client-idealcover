@@ -1,4 +1,4 @@
-import { Hero } from "@ui";
+import { Hero, TallyForm } from "@ui";
 import { getPrismicSingle } from "@utils";
 
 const page = await getPrismicSingle("about");
@@ -25,16 +25,7 @@ export default async function Page() {
       </Hero>
       <section className="w-full">
         <div className="max-w-lg mx-auto mb-16">
-          <iframe
-            data-tally-src="https://tally.so/embed/3y2bWx?hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
-            width="100%"
-            height="543"
-            frameBorder="0"
-            marginHeight={0}
-            marginWidth={0}
-            title="Contact us"
-          ></iframe>
+          <TallyForm contactForm />
         </div>
       </section>
     </>

@@ -3,7 +3,7 @@ import "./globals.css";
 import { repositoryName } from "../prismicio";
 import { PrismicPreview } from "@prismicio/next";
 import { getPrismicSingle } from "@utils";
-import { Footer, Header } from "@ui";
+import { Footer, Header, TallyForm } from "@ui";
 import { Karla } from "next/font/google";
 import { Metadata } from "next";
 import { menuItem, socialItem } from "@/types";
@@ -72,10 +72,7 @@ export default async function RootLayout({
         </div>
         <PrismicPreview repositoryName={repositoryName} />
       </body>
-      <Script
-        src="https://tally.so/widgets/embed.js"
-        strategy="beforeInteractive"
-      />
+      <TallyForm scriptOnly />
     </html>
   );
 }
