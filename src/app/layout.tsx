@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import "./globals.css";
 import { repositoryName } from "../prismicio";
 import { PrismicPreview } from "@prismicio/next";
@@ -49,7 +50,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={karla.className}>
-      <Script src="https://tally.so/widgets/embed.js" strategy="worker" />
       <body className="min-w-full">
         <div className="max-w-7xl container mx-auto">
           <Header
@@ -72,6 +72,10 @@ export default async function RootLayout({
         </div>
         <PrismicPreview repositoryName={repositoryName} />
       </body>
+      <Script
+        src="https://tally.so/widgets/embed.js"
+        strategy="beforeInteractive"
+      />
     </html>
   );
 }
