@@ -59,7 +59,11 @@ function Header({
       </a>
     </>
   );
-  const quoteLink = <Button>{ctaLabel}</Button>;
+  const quoteLink = (
+    <Link href={"/quote"}>
+      <Button>{ctaLabel}</Button>
+    </Link>
+  );
   const mobileMenu = (
     <Sheet>
       <SheetTrigger>
