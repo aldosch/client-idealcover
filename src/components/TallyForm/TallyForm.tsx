@@ -1,23 +1,13 @@
 // prettier-ignore
 "use client"
+
 import Script from "next/script";
 import React from "react";
 
-type Props = { scriptOnly?: boolean; contactForm?: boolean };
+type Props = { contactForm?: boolean };
 
-function TallyForm({ scriptOnly, contactForm }: Props) {
-  if (scriptOnly) {
-    return (
-      <Script
-        src="https://tally.so/widgets/embed.js"
-        strategy="lazyOnload"
-        onLoad={() => {
-          // @ts-ignore
-          Tally.loadEmbeds();
-        }}
-      />
-    );
-  } else if (contactForm) {
+function TallyForm({ contactForm }: Props) {
+  if (contactForm) {
     return (
       <>
         <iframe
@@ -33,7 +23,8 @@ function TallyForm({ scriptOnly, contactForm }: Props) {
         <Script
           src="https://tally.so/widgets/embed.js"
           strategy="lazyOnload"
-          onLoad={() => {
+          onReady={() => {
+            // router.refresh();
             // @ts-ignore
             Tally.loadEmbeds();
           }}
@@ -56,7 +47,13 @@ function TallyForm({ scriptOnly, contactForm }: Props) {
         <Script
           src="https://tally.so/widgets/embed.js"
           strategy="lazyOnload"
-          onLoad={() => {
+          // onLoad={() => {
+          //   // @ts-ignore
+          //   Tally.loadEmbeds();
+          //   router.refresh();
+          // }}
+          onReady={() => {
+            // router.refresh();
             // @ts-ignore
             Tally.loadEmbeds();
           }}

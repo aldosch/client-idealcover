@@ -72,7 +72,6 @@ export default async function RootLayout({
         </div>
         <PrismicPreview repositoryName={repositoryName} />
       </body>
-      <TallyForm scriptOnly />
     </html>
   );
 }
