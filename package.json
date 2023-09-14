@@ -44,6 +44,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@builder.io/partytown": "^0.8.1",
     "@slicemachine/adapter-next": "^0.3.14",
     "slice-machine-ui": "^1.12.0"
   }

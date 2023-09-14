@@ -99,6 +99,9 @@ dependencies:
     version: 3.22.2
 
 devDependencies:
+  '@builder.io/partytown':
+    specifier: ^0.8.1
+    version: 0.8.1
   '@slicemachine/adapter-next':
     specifier: ^0.3.14
     version: 0.3.14(@prismicio/client@7.2.0)(next@13.4.19)(react@18.2.0)
@@ -129,6 +132,12 @@ packages:
     dependencies:
       regenerator-runtime: 0.14.0
     dev: false
+
+  /@builder.io/partytown@0.8.1:
+    resolution: {integrity: sha512-p4xhEtQCPe8YFJ8e7KT9RptnT+f4lvtbmXymbp1t0bLp+USkNMTxrRMNc3Dlr2w2fpxyX7uA0CyAeU3ju84O4A==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+    dev: true
 
   /@emotion/is-prop-valid@0.8.8:
     resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}

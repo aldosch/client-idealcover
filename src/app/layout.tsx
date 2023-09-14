@@ -49,7 +49,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={karla.className}>
-      <Script src="https://tally.so/widgets/embed.js" />
+      <Script src="https://tally.so/widgets/embed.js" strategy="worker" />
       <body className="min-w-full">
         <div className="max-w-7xl container mx-auto">
           <Header
