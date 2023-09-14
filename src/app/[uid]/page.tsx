@@ -1,6 +1,5 @@
 import { Hero, Icon, QuoteForm, TallyForm } from "@ui";
 import { getPrismicUID, getPrismicType } from "@/src/lib/utils";
-import Script from "next/script";
 
 export default async function Page({ params }: { params: { uid: string } }) {
   const page = await getPrismicUID("product", params.uid);
