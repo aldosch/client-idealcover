@@ -19,4 +19,5 @@ type PrismicCustomTypes =
   | "privacy_policy"
   | "product"
   | "quote_form"
-  | "testimonials";
+  | "testimonials"
+  | "income_protection";

@@ -23,6 +23,10 @@ const routes: prismic.ClientConfig["routes"] = [
     path: "/:uid",
   },
   {
+    type: "income_protection",
+    path: "/income-protection",
+  },
+  {
     type: "about",
     path: "/about",
   },
