@@ -1,3 +1,5 @@
+import { SliceZone } from "@prismicio/react";
+import { components } from "../../slices";
 import { Hero, TallyForm } from "@ui";
 import { getPrismicSingle } from "@utils";
 
@@ -28,6 +30,7 @@ export default async function Page() {
           <TallyForm contactForm />
         </div>
       </section>
+      <SliceZone slices={page.data.slices} components={components} />
     </>
   );
 }

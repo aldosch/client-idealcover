@@ -1,3 +1,5 @@
+import { SliceZone } from "@prismicio/react";
+import { components } from "../../slices";
 import { PrismicRichText } from "@prismicio/react";
 import { Hero, QuoteForm } from "@ui";
 import { getPrismicSingle } from "@utils";
@@ -15,6 +17,7 @@ export default async function Page() {
       <section className="flex flex-col max-w-3xl gap-8 p-4 mx-auto my-8">
         <PrismicRichText field={page.data.content} />
       </section>
+      <SliceZone slices={page.data.slices} components={components} />
     </>
   );
 }

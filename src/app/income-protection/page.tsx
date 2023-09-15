@@ -1,3 +1,5 @@
+import { SliceZone } from "@prismicio/react";
+import { components } from "../../slices";
 import { Hero, Icon, TallyForm } from "@ui";
 import { getPrismicType, getPrismicSingle } from "@utils";
 
@@ -8,7 +10,7 @@ export default async function Page({ params }: { params: { uid: string } }) {
       <Hero
         title={page.data.name}
         subTitle={"none"}
-        callToAction={"none"}
+        callToAction={"none"} 
         image={page.data.image}
       >
         <div className="flex flex-col gap-8 my-8">
@@ -41,6 +43,7 @@ export default async function Page({ params }: { params: { uid: string } }) {
           <TallyForm />
         </div>
       </section>
+      <SliceZone slices={page.data.slices} components={components} />
     </>
   );
 }
