@@ -24,13 +24,13 @@ const ThreeCards = ({ slice }: ThreeCardsProps): JSX.Element => {
           </FadeIn>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-lg text-gray-700 my-16 [&>div]:p-8">
-          <Card>
+          <Card className="hover:bg-primary-50 hover:border-primary-200 duration-200">
             <PrismicRichText field={slice.primary.card_one} />
           </Card>
-          <Card>
+          <Card className="hover:bg-primary-50 hover:border-primary-200 duration-200">
             <PrismicRichText field={slice.primary.card_two} />
           </Card>
-          <Card>
+          <Card className="hover:bg-primary-50 hover:border-primary-200 duration-200">
             <PrismicRichText field={slice.primary.card_three} />
           </Card>
         </div>
