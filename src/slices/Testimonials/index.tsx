@@ -21,7 +21,7 @@ const Stars = ({ stars }: { stars: "1" | "2" | "3" | "4" | "5" }) => {
         <Icon
           key={i}
           name="star"
-          className="fill-primary-300 text-primary-300 w-4 h-4"
+          className="w-4 h-4 fill-primary-300 text-primary-300"
         />
       ))}
     </div>
@@ -42,12 +42,12 @@ const Testimonials = async ({
         <span>{slice.primary.title}</span>
       </div>
       <ScrollArea className="py-8 my-8">
-        <div className="flex-nowrap flex gap-4 px-8">
+        <div className="flex gap-4 px-8 flex-nowrap">
           {testimonials &&
             testimonials.data.testimonials.map((item: any) => (
               <PrismicNextLink
                 key={item.name}
-                className="rounded-xl hover:shadow-lg w-96 hover hover:text-black flex flex-col justify-between p-8 my-8 text-gray-500 duration-200 border"
+                className="flex flex-col justify-between p-8 my-8 text-gray-500 duration-200 border rounded-xl hover:shadow-lg w-96 hover hover:text-black"
                 field={item.url}
                 target="_blank"
               >
@@ -55,7 +55,7 @@ const Testimonials = async ({
                   <div className="flex items-center justify-between gap-4 mb-4">
                     <Stars stars={item.stars} />
                   </div>
-                  <div className="line-clamp-6 ">
+                  <div className="[&>*]:line-clamp-6 line-clamp-6">
                     <PrismicRichText field={item.review} />
                   </div>
                 </div>
