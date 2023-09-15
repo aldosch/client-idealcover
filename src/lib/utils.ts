@@ -4,9 +4,7 @@ import { twMerge } from "tailwind-merge";
 import { repositoryName } from "../prismicio";
 import { PrismicCustomTypes } from "@/types";
 
-export async function getPrismicSingle(
-  single: PrismicCustomTypes
-): Promise<any> {
+export async function getPrismicSingle(single: any): Promise<any> {
   const client = createClient(repositoryName, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
     fetchOptions:
@@ -18,28 +16,28 @@ export async function getPrismicSingle(
   return data;
 }
 
-export async function getPrismicUID(
-  type: PrismicCustomTypes,
-  uid: string
-): Promise<any> {
-  const client = createClient(repositoryName, {
-    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-    ref: "master",
-    fetchOptions:
-      process.env.NODE_ENV === "production"
-        ? { next: { tags: ["prismic"] }, cache: "force-cache" }
-        : { next: { revalidate: 5 } },
-  });
-  try {
-    const data = await client.getByUID(type, uid);
-    return data;
-  } catch (error) {
-    console.error("Error fetching data from Prismic:", error);
-    throw error;
-  }
-}
+// export async function getPrismicUID(
+//   type: PrismicCustomTypes,
+//   uid: string
+// ): Promise<any> {
+//   const client = createClient(repositoryName, {
+//     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+//     ref: "master",
+//     fetchOptions:
+//       process.env.NODE_ENV === "production"
+//         ? { next: { tags: ["prismic"] }, cache: "force-cache" }
+//         : { next: { revalidate: 5 } },
+//   });
+//   try {
+//     const data = await client.getByUID(type, uid);
+//     return data;
+//   } catch (error) {
+//     console.error("Error fetching data from Prismic:", error);
+//     throw error;
+//   }
+// }
 
-export async function getPrismicType(type: PrismicCustomTypes): Promise<any> {
+export async function getPrismicType(type: any): Promise<any> {
   const client = createClient(repositoryName, {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
   });
