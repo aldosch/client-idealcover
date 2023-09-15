@@ -20,4 +20,7 @@ type PrismicCustomTypes =
   | "product"
   | "quote_form"
   | "testimonials"
-  | "income_protection";
+  | "income_protection"
+  | "life_insurance"
+  | "trauma_cover"
+  | "tpd_cover";
