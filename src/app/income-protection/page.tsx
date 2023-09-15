@@ -1,8 +1,8 @@
-import { Hero, Icon, QuoteForm, TallyForm } from "@ui";
-import { getPrismicUID, getPrismicType } from "@/src/lib/utils";
+import { Hero, Icon, TallyForm } from "@ui";
+import { getPrismicType, getPrismicSingle } from "@utils";
 
 export default async function Page({ params }: { params: { uid: string } }) {
-  const page = await getPrismicUID("product", params.uid);
+  const page = await getPrismicSingle("income_protection");
   return (
     <>
       <Hero
@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: { uid: string } }) {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-medium">{item.title}</span>
-                <span>{item.sub_title}</span>
+                <span>{item.subtitle}</span>
               </div>
             </div>
           ))}
@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { uid: string } }) {
           <span>{page.data.hook_title}</span>
         </div>
         <div className="text-lg">
-          <span>{page.data.hook_sub_title}</span>
+          <span>{page.data.hook_subtitle}</span>
         </div>
       </section>
       <section>
