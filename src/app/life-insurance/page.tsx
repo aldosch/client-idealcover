@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { uid: string } }) {
         <div className="flex flex-col gap-8 my-8">
           {page.data.features.map((item: any, index: number) => (
             <div className="flex gap-4" key={index}>
-              <div className="bg-brand-shape h-min p-4 bg-no-repeat bg-cover">
+              <div className="p-4 bg-no-repeat bg-cover bg-brand-shape h-min">
                 {/* item.icon is safe but I can't figure out how to fix the ts error quickly */}
                 {/* @ts-ignore */}
                 <Icon name={item.icon} className="w-6 h-6" />
