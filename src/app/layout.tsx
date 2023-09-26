@@ -7,8 +7,8 @@ import { Footer, Header, TallyForm } from "@ui";
 import { Karla } from "next/font/google";
 import { Metadata } from "next";
 import { menuItem, socialItem } from "@/types";
-import Script from "next/script";
 import GoogleTagManager from "../components/GoogleTagManager/GoogleTagManager";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   // default values
@@ -72,6 +72,7 @@ export default async function RootLayout({
             />
           </footer>
         </div>
+        <Analytics />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
