@@ -43,7 +43,7 @@ function Hero({
           <div>{children}</div>
         </div>
         <div className="col-span-3">
-          <ClippedImage field={image} clip="hero" />
+          <ClippedImage field={image} clip="hero" loading="eager" />
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@ function Hero({
         </div>
         <div className="col-span-4">
           <FadeIn>
-            <ClippedImage field={image} clip="hero" />
+            <ClippedImage field={image} clip="hero" loading="eager" />
           </FadeIn>
         </div>
       </div>
