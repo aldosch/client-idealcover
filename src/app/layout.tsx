@@ -8,6 +8,7 @@ import { Karla } from "next/font/google";
 import { Metadata } from "next";
 import { menuItem, socialItem } from "@/types";
 import Script from "next/script";
+import GoogleTagManager from "../components/GoogleTagManager/GoogleTagManager";
 
 export const metadata: Metadata = {
   // default values
@@ -51,6 +52,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={karla.className}>
       <body className="min-w-full">
+        <GoogleTagManager />
         <div className="max-w-7xl container mx-auto">
           <Header
             menuItems={menuItems}
