@@ -9,9 +9,17 @@ type Props = {
   classNames?: string;
   width?: number;
   height?: number;
+  loading?: "lazy" | "eager";
 };
 
-function ClippedImage({ field, clip, classNames, width, height }: Props) {
+function ClippedImage({
+  field,
+  clip,
+  classNames,
+  width,
+  height,
+  loading = "lazy",
+}: Props) {
   // Adjust using svg-path-editor
   // github.com/Yqnn/svg-path-editor
   const smClipPathHero = {
@@ -47,6 +55,7 @@ function ClippedImage({ field, clip, classNames, width, height }: Props) {
         }
         width={width}
         height={height}
+        loading={loading}
       />
       <PrismicNextImage
         field={field}
@@ -63,6 +72,7 @@ function ClippedImage({ field, clip, classNames, width, height }: Props) {
         }
         width={width}
         height={height}
+        loading={loading}
       />
     </>
   );
