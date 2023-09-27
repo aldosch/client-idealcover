@@ -11,7 +11,7 @@ function GoogleTagManager({ gtmID = "GTM-5TNBWZ66" }: Props) {
         src={`https://www.googletagmanager.com/gtag/js?id=${gtmID}`}
         strategy="beforeInteractive"
       />
-      <Script id="google-tag-manager">
+      <Script id="google-tag-manager" strategy="beforeInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
