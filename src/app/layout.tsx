@@ -8,6 +8,7 @@ import { Metadata } from "next";
 import { menuItem, socialItem } from "@/types";
 import GoogleTagManager from "@magicul/next-google-tag-manager";
 import { Analytics } from "@vercel/analytics/react";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   // default values
@@ -21,6 +22,10 @@ const karla = Karla({
   subsets: ["latin"],
   display: "swap",
 });
+
+function Fallback() {
+  return <span className="sr-only">Loading...</span>;
+}
 
 export default async function RootLayout({
   children,
@@ -51,7 +56,9 @@ export default async function RootLayout({
   return (
     <html lang="en" className={karla.className}>
       <body className="min-w-full">
-        <GoogleTagManager id="GTM-5TNBWZ66" />
+        <Suspense fallback={<Fallback />}>
+          <GoogleTagManager id="GTM-5TNBWZ66" />
+        </Suspense>
         <div className="max-w-7xl container mx-auto">
           <Header
             menuItems={menuItems}
@@ -71,8 +78,12 @@ export default async function RootLayout({
             />
           </footer>
         </div>
-        <Analytics />
-        <PrismicPreview repositoryName={repositoryName} />
+        <Suspense fallback={<Fallback />}>
+          <Analytics />
+        </Suspense>
+        <Suspense fallback={<Fallback />}>
+          <PrismicPreview repositoryName={repositoryName} />
+        </Suspense>
       </body>
     </html>
   );
