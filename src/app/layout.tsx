@@ -8,6 +8,7 @@ import { Metadata } from "next";
 import { menuItem, socialItem } from "@/types";
 import GoogleTagManager from "@magicul/next-google-tag-manager";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
@@ -81,6 +82,7 @@ export default async function RootLayout({
         </div>
         <Suspense fallback={<Fallback />}>
           <Analytics />
+          <SpeedInsights />
         </Suspense>
         <Suspense fallback={<Fallback />}>
           <PrismicPreview repositoryName={repositoryName} />
