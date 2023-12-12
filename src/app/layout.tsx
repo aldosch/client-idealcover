@@ -3,11 +3,11 @@ import "./globals.css";
 import { repositoryName } from "../prismicio";
 import { PrismicPreview } from "@prismicio/next";
 import { getPrismicSingle } from "@utils";
-import { Footer, Header, TallyForm } from "@ui";
+import { Footer, Header } from "@ui";
 import { Karla } from "next/font/google";
 import { Metadata } from "next";
 import { menuItem, socialItem } from "@/types";
-import GoogleTagManager from "../components/GoogleTagManager/GoogleTagManager";
+import GoogleTagManager from "@magicul/next-google-tag-manager";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
@@ -52,7 +52,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={karla.className}>
       <body className="min-w-full">
-        <GoogleTagManager />
+        <GoogleTagManager id="GTM-5TNBWZ66" />
         <div className="max-w-7xl container mx-auto">
           <Header
             menuItems={menuItems}
