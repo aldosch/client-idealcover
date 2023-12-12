@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "Ideal Cover",
   description:
     "Secure your financial future with Ideal Cover. Offering personalised service for income protection, life insurance, TPD and trauma cover. Get your free quote today!",
+  metadataBase: new URL("https://idealcover.com.au/"),
 };
 
 const karla = Karla({
