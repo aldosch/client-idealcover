@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import "./globals.css";
 import { repositoryName } from "../prismicio";
 import { PrismicPreview } from "@prismicio/next";
